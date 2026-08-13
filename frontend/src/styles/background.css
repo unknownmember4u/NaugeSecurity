@@ -29,7 +29,8 @@ body, #root {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  right: 0;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   z-index: 1;
@@ -51,7 +52,8 @@ body, #root {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  right: 0;
+  width: 100%;
   height: 100vh;
   z-index: 2;
   pointer-events: none;
@@ -80,7 +82,8 @@ body, #root {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  right: 0;
+  width: 100%;
   height: 100vh;
   z-index: 5;
   pointer-events: none;
@@ -182,12 +185,12 @@ body, #root {
   min-height: 100vh;
   background-color: #ffffff;
   color: #0f172a;
-  border-top-left-radius: 36px;
-  border-top-right-radius: 36px;
-  box-shadow: 0 -30px 70px rgba(0, 0, 0, 0.35);
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  box-shadow: 0 -25px 60px rgba(0, 0, 0, 0.35);
   position: relative;
   z-index: 20;
-  margin-top: -2rem;
+  margin-top: 0;
 }
 
 /* --------------------------------------------------------------------------
@@ -197,12 +200,12 @@ body, #root {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid #e2e8f0;
-  border-top-left-radius: 36px;
-  border-top-right-radius: 36px;
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
   transition: all 0.3s ease;
 }
 
@@ -945,7 +948,8 @@ body, #root {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  right: 0;
+  width: 100%;
   height: 100vh;
   background: rgba(15, 23, 42, 0.75);
   backdrop-filter: blur(8px);
