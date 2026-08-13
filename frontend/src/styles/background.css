@@ -35,6 +35,8 @@ body, #root {
   overflow: hidden;
   z-index: 1;
   pointer-events: none;
+  transition: filter 0.12s ease-out, opacity 0.12s ease-out;
+  will-change: filter, opacity;
 }
 
 .bg-video-element {
@@ -62,6 +64,8 @@ body, #root {
     linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.3) 100%);
   backdrop-filter: blur(14px) saturate(120%);
   -webkit-backdrop-filter: blur(14px) saturate(120%);
+  transition: backdrop-filter 0.12s ease-out;
+  will-change: backdrop-filter;
 }
 
 /* ==========================================================================
@@ -90,6 +94,8 @@ body, #root {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: filter 0.12s ease-out, opacity 0.12s ease-out, transform 0.12s ease-out;
+  will-change: filter, opacity, transform;
 }
 
 .hero-section {
@@ -192,6 +198,8 @@ body, #root {
   position: relative;
   z-index: 20;
   margin-top: 0;
+  transition: filter 0.12s ease-out, opacity 0.12s ease-out, transform 0.12s ease-out;
+  will-change: filter, opacity, transform;
 }
 
 /* --------------------------------------------------------------------------

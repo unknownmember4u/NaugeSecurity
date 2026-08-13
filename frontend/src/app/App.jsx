@@ -11,6 +11,7 @@ export function App() {
   const [loading, setLoading] = useState(true);
   const [splashProgress, setSplashProgress] = useState(0);
   const [pageRevealed, setPageRevealed] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     // Autoplay background video
@@ -41,6 +42,43 @@ export function App() {
     return () => clearInterval(interval);
   }, []);
 
+  // Track scroll position for dynamic blur effect
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrollY(window.scrollY || 0);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Calculate dynamic scroll blur & fade metrics (0 to 1 progress over 600px scroll range)
+  const maxScrollThreshold = typeof window !== 'undefined' ? Math.max(window.innerHeight * 0.75, 450) : 600;
+  const scrollProgress = Math.min(Math.max(scrollY / maxScrollThreshold, 0), 1);
+
+  // Hero section dynamic styles
+  const heroBlur = scrollProgress * 22; // 0px to 22px blur
+  const heroOpacity = Math.max(1 - scrollProgress * 1.35, 0); // 1.0 to 0.0
+  const heroScale = 1 - scrollProgress * 0.08; // 1.0 to 0.92
+  const heroTranslateY = scrollProgress * -40; // 0px to -40px
+
+  // Background video dynamic styles
+  const bgBlur = scrollProgress * 26; // 0px to 26px blur on video
+  const bgOpacity = Math.max(1 - scrollProgress * 0.55, 0.45); // 1.0 to 0.45
+
+  // Main enterprise page sheet dynamic styles (Transitions from BLUR -> CLEAR as user scrolls)
+  const sheetBlur = (1 - scrollProgress) * 18; // 18px blur at top -> 0px clear when scrolled
+  const sheetOpacity = Math.min(0.35 + scrollProgress * 0.65, 1); // 0.35 opacity -> 1.0 full opacity
+  const sheetScale = 0.98 + scrollProgress * 0.02; // 0.98 -> 1.0 focus scale
+
   const handleDemoSubmit = (e) => {
     e.preventDefault();
     if (email) {
@@ -68,8 +106,14 @@ export function App() {
         </div>
       )}
 
-      {/* Fixed Background Video Layer */}
-      <div className="bg-video-container">
+      {/* Fixed Background Video Layer (Progressively blurs on scroll) */}
+      <div 
+        className="bg-video-container"
+        style={{
+          filter: `blur(${bgBlur}px)`,
+          opacity: bgOpacity,
+        }}
+      >
         <video
           ref={videoRef}
           className="bg-video-element"
@@ -84,11 +128,24 @@ export function App() {
         </video>
       </div>
 
-      {/* Fixed Glassmorphism Overlay */}
-      <div className="glass-overlay" />
+      {/* Fixed Glassmorphism Overlay (Increases backdrop blur on scroll) */}
+      <div 
+        className="glass-overlay"
+        style={{
+          backdropFilter: `blur(${14 + scrollProgress * 16}px) saturate(120%)`,
+          WebkitBackdropFilter: `blur(${14 + scrollProgress * 16}px) saturate(120%)`,
+        }}
+      />
 
-      {/* Fixed Hero Title Section (Stays locked in place on screen) */}
-      <div className={`fixed-hero-container ${pageRevealed ? 'page-revealed' : ''}`}>
+      {/* Fixed Hero Title Section (Progressively blurs and fades as user scrolls down) */}
+      <div 
+        className={`fixed-hero-container ${pageRevealed ? 'page-revealed' : ''}`}
+        style={{
+          filter: `blur(${heroBlur}px)`,
+          opacity: heroOpacity,
+          transform: `translateY(${heroTranslateY}px) scale(${heroScale})`,
+        }}
+      >
         <section className="hero-section">
           <h1 className="hero-title animate-title">NaugeSecurity</h1>
 
@@ -107,8 +164,16 @@ export function App() {
         {/* Invisible Spacer allowing scrolling past the fixed hero */}
         <div className="hero-scroll-spacer" />
 
-        {/* Enterprise White Sheet Section (Swipes up ABOVE fixed NaugeSecurity title & background) */}
-        <section className="enterprise-page-sheet animate-sheet" id="enterprise-platform">
+        {/* Enterprise Page Sheet Section (Swipes up & transitions from BLUR -> CLEAR as user scrolls) */}
+        <section 
+          className="enterprise-page-sheet animate-sheet" 
+          id="enterprise-platform"
+          style={{
+            filter: `blur(${sheetBlur}px)`,
+            opacity: sheetOpacity,
+            transform: `scale(${sheetScale})`,
+          }}
+        >
 
           {/* Enterprise Header / Sticky Navigation Bar */}
           <header className="ent-navbar">
