@@ -8,8 +8,12 @@ export function App() {
   const [demoModalOpen, setDemoModalOpen] = useState(false);
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [splashProgress, setSplashProgress] = useState(0);
+  const [pageRevealed, setPageRevealed] = useState(false);
 
   useEffect(() => {
+    // Autoplay background video
     if (videoRef.current) {
       videoRef.current.defaultMuted = true;
       videoRef.current.muted = true;
@@ -17,6 +21,24 @@ export function App() {
         console.warn('Autoplay prevented by browser:', err);
       });
     }
+
+    // Splash screen progress simulation
+    const interval = setInterval(() => {
+      setSplashProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            setLoading(false);
+            setTimeout(() => setPageRevealed(true), 80);
+          }, 350);
+          return 100;
+        }
+        const diff = Math.floor(Math.random() * 18) + 12;
+        return Math.min(prev + diff, 100);
+      });
+    }, 110);
+
+    return () => clearInterval(interval);
   }, []);
 
   const handleDemoSubmit = (e) => {
@@ -33,6 +55,19 @@ export function App() {
 
   return (
     <>
+      {/* Loading Splash Screen */}
+      {loading && (
+        <div className={`splash-screen ${splashProgress === 100 ? 'splash-exit' : ''}`}>
+          <div className="splash-content">
+
+            <div className="splash-progress-container">
+              <div className="splash-progress-bar" style={{ width: `${splashProgress}%` }} />
+            </div>
+            <div className="splash-percentage">{splashProgress}%</div>
+          </div>
+        </div>
+      )}
+
       {/* Fixed Background Video Layer */}
       <div className="bg-video-container">
         <video
@@ -53,13 +88,11 @@ export function App() {
       <div className="glass-overlay" />
 
       {/* Fixed Hero Title Section (Stays locked in place on screen) */}
-      <div className="fixed-hero-container">
+      <div className={`fixed-hero-container ${pageRevealed ? 'page-revealed' : ''}`}>
         <section className="hero-section">
+          <h1 className="hero-title animate-title">NaugeSecurity</h1>
 
-          <h1 className="hero-title">NaugeSecurity</h1>
-
-
-          <div className="scroll-indicator">
+          <div className="scroll-indicator animate-indicator">
             <span className="mouse-icon">
               <span className="mouse-wheel"></span>
             </span>
@@ -69,13 +102,13 @@ export function App() {
       </div>
 
       {/* Scrollable Content Container */}
-      <div className="scroll-content-container">
+      <div className={`scroll-content-container ${pageRevealed ? 'page-revealed' : ''}`}>
 
         {/* Invisible Spacer allowing scrolling past the fixed hero */}
         <div className="hero-scroll-spacer" />
 
         {/* Enterprise White Sheet Section (Swipes up ABOVE fixed NaugeSecurity title & background) */}
-        <section className="enterprise-page-sheet" id="enterprise-platform">
+        <section className="enterprise-page-sheet animate-sheet" id="enterprise-platform">
 
           {/* Enterprise Header / Sticky Navigation Bar */}
           <header className="ent-navbar">
