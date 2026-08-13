@@ -178,16 +178,17 @@ body, #root {
 }
 
 /* ==========================================================================
-   Enterprise White Sheet (Swipes up over the fixed background)
+   Enterprise Dark High-Contrast Page Sheet (Swipes up over fixed background)
    ========================================================================== */
 .enterprise-page-sheet {
   width: 100%;
   min-height: 100vh;
-  background-color: #ffffff;
-  color: #0f172a;
+  background-color: #09090b;
+  color: #f8fafc;
+  border-top: 1px solid rgba(249, 115, 22, 0.3);
   border-top-left-radius: 28px;
   border-top-right-radius: 28px;
-  box-shadow: 0 -25px 60px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 -30px 80px rgba(0, 0, 0, 0.85);
   position: relative;
   z-index: 20;
   margin-top: 0;
@@ -200,10 +201,10 @@ body, #root {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid #e2e8f0;
+  background: rgba(9, 9, 11, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   border-top-left-radius: 28px;
   border-top-right-radius: 28px;
   transition: all 0.3s ease;
@@ -227,19 +228,19 @@ body, #root {
 .ent-logo-text {
   font-size: 1.35rem;
   font-weight: 800;
-  color: #0f172a;
+  color: #ffffff;
   letter-spacing: -0.02em;
 }
 
 .ent-badge {
-  background: #fff7ed;
-  color: #ea580c;
+  background: rgba(249, 115, 22, 0.12);
+  color: #f97316;
   font-size: 0.65rem;
   padding: 0.2rem 0.55rem;
   border-radius: 6px;
   font-weight: 800;
   letter-spacing: 0.08em;
-  border: 1px solid #ffedd5;
+  border: 1px solid rgba(249, 115, 22, 0.3);
 }
 
 .ent-nav-links {
@@ -250,14 +251,14 @@ body, #root {
 
 .ent-link {
   text-decoration: none;
-  color: #475569;
+  color: #a1a1aa;
   font-size: 0.925rem;
   font-weight: 600;
   transition: color 0.2s ease;
 }
 
 .ent-link:hover {
-  color: #f97316;
+  color: #ffffff;
 }
 
 .ent-nav-actions {
@@ -267,9 +268,9 @@ body, #root {
 }
 
 .btn-secondary-light {
-  background: transparent;
-  border: 1px solid #cbd5e1;
-  color: #334155;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
   padding: 0.6rem 1.15rem;
   border-radius: 10px;
   font-size: 0.875rem;
@@ -279,14 +280,14 @@ body, #root {
 }
 
 .btn-secondary-light:hover {
-  background: #f8fafc;
-  border-color: #94a3b8;
-  color: #0f172a;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
 }
 
 .btn-primary-dark {
-  background: #0f172a;
-  border: 1px solid #0f172a;
+  background: #f97316;
+  border: 1px solid #f97316;
   color: #ffffff;
   padding: 0.6rem 1.25rem;
   border-radius: 10px;
@@ -297,9 +298,9 @@ body, #root {
 }
 
 .btn-primary-dark:hover {
-  background: #f97316;
-  border-color: #f97316;
-  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);
+  background: #ea580c;
+  border-color: #ea580c;
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
   transform: translateY(-1px);
 }
 
@@ -319,9 +320,9 @@ body, #root {
   gap: 0.6rem;
   padding: 0.5rem 1.15rem;
   border-radius: 9999px;
-  background: #fff7ed;
-  border: 1px solid #fed7aa;
-  color: #9a3412;
+  background: rgba(249, 115, 22, 0.08);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  color: #fdba74;
   font-size: 0.85rem;
   font-weight: 600;
   margin-bottom: 1.75rem;
@@ -345,15 +346,16 @@ body, #root {
 .ent-main-heading {
   font-size: clamp(2.25rem, 4.5vw, 3.75rem);
   font-weight: 800;
-  color: #0f172a;
+  color: #ffffff;
   letter-spacing: -0.03em;
   line-height: 1.15;
   margin: 0 0 1.5rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 .ent-main-subtext {
   font-size: 1.2rem;
-  color: #475569;
+  color: #a1a1aa;
   max-width: 820px;
   margin: 0 auto 2.5rem;
   line-height: 1.65;
@@ -377,21 +379,21 @@ body, #root {
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.28);
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.35);
 }
 
 .btn-primary-large:hover {
   background: #ea580c;
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(249, 115, 22, 0.4);
+  box-shadow: 0 12px 30px rgba(249, 115, 22, 0.5);
 }
 
 .btn-outline-large {
   display: inline-block;
   text-decoration: none;
-  background: #ffffff;
-  color: #0f172a;
-  border: 1px solid #000000;
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 0.95rem 2rem;
   border-radius: 12px;
   font-size: 1rem;
@@ -400,8 +402,9 @@ body, #root {
 }
 
 .btn-outline-large:hover {
-  background: #000000;
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
   transform: translateY(-2px);
 }
 
@@ -415,17 +418,18 @@ body, #root {
 }
 
 .stat-card {
-  background: #fafafa;
-  border: 1px solid #e4e4e7;
+  background: #121215;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   padding: 2rem 1.75rem;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .stat-card:hover {
   transform: translateY(-3px);
-  border-color: #fdba74;
-  box-shadow: 0 10px 25px rgba(249, 115, 22, 0.08);
+  background: #16161c;
+  border-color: rgba(249, 115, 22, 0.4);
+  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.12);
 }
 
 .stat-value {
@@ -438,13 +442,13 @@ body, #root {
 .stat-label {
   font-size: 1rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #ffffff;
   margin-top: 0.35rem;
 }
 
 .stat-desc {
   font-size: 0.85rem;
-  color: #64748b;
+  color: #a1a1aa;
   margin-top: 0.5rem;
   line-height: 1.45;
 }
@@ -453,9 +457,9 @@ body, #root {
    Compliance Logos Bar
    -------------------------------------------------------------------------- */
 .ent-compliance-bar {
-  background: #fafafa;
-  border-top: 1px solid #f1f5f9;
-  border-bottom: 1px solid #f1f5f9;
+  background: #050507;
+  border-top: 1px solid #18181b;
+  border-bottom: 1px solid #18181b;
   padding: 3rem 2rem;
   text-align: center;
 }
@@ -464,7 +468,7 @@ body, #root {
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.2em;
-  color: #94a3b8;
+  color: #71717a;
   text-transform: uppercase;
   margin-bottom: 1.75rem;
 }
@@ -484,19 +488,19 @@ body, #root {
   align-items: center;
   gap: 0.6rem;
   padding: 0.75rem 1.5rem;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: #121215;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   font-size: 0.925rem;
   font-weight: 700;
-  color: #334155;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  color: #f8fafc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   transition: all 0.2s ease;
 }
 
 .badge-item:hover {
-  border-color: #fdba74;
-  background: #fff7ed;
+  border-color: rgba(249, 115, 22, 0.4);
+  background: rgba(249, 115, 22, 0.08);
 }
 
 .badge-icon {
@@ -515,10 +519,10 @@ body, #root {
 }
 
 .bg-light-alt {
-  background-color: #f8fafc;
+  background-color: #050507;
   max-width: 100%;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
+  border-top: 1px solid #18181b;
+  border-bottom: 1px solid #18181b;
 }
 
 .bg-light-alt .architecture-box {
@@ -545,14 +549,14 @@ body, #root {
 .section-title {
   font-size: clamp(2rem, 3.5vw, 2.75rem);
   font-weight: 800;
-  color: #0f172a;
+  color: #ffffff;
   letter-spacing: -0.025em;
   margin: 0 0 1rem;
 }
 
 .section-subtitle {
   font-size: 1.1rem;
-  color: #64748b;
+  color: #a1a1aa;
   line-height: 1.6;
   margin: 0;
 }
@@ -567,8 +571,8 @@ body, #root {
 }
 
 .feature-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: #121215;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
   padding: 2.75rem 2.25rem;
   transition: all 0.3s ease;
@@ -577,16 +581,17 @@ body, #root {
 }
 
 .feature-card:hover {
-  border-color: #fdba74;
-  box-shadow: 0 16px 40px rgba(249, 115, 22, 0.08);
+  background: #16161c;
+  border-color: rgba(249, 115, 22, 0.4);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
   transform: translateY(-4px);
 }
 
 .feature-icon-box {
   width: 52px;
   height: 52px;
-  background: #fff7ed;
-  border: 1px solid #ffedd5;
+  background: rgba(249, 115, 22, 0.12);
+  border: 1px solid rgba(249, 115, 22, 0.3);
   border-radius: 14px;
   color: #f97316;
   display: flex;
@@ -603,14 +608,14 @@ body, #root {
 .feature-title {
   font-size: 1.35rem;
   font-weight: 800;
-  color: #0f172a;
+  color: #ffffff;
   margin: 0 0 0.85rem;
   letter-spacing: -0.015em;
 }
 
 .feature-desc {
   font-size: 0.975rem;
-  color: #475569;
+  color: #a1a1aa;
   line-height: 1.6;
   margin: 0 0 1.5rem;
 }
@@ -628,7 +633,7 @@ body, #root {
   position: relative;
   padding-left: 1.35rem;
   font-size: 0.875rem;
-  color: #64748b;
+  color: #cbd5e1;
   font-weight: 500;
 }
 
@@ -644,17 +649,17 @@ body, #root {
    Technical Architecture Box
    -------------------------------------------------------------------------- */
 .architecture-box {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: #121215;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .arch-tabs {
   display: flex;
-  background: #f1f5f9;
-  border-bottom: 1px solid #e2e8f0;
+  background: #09090b;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .arch-tab-btn {
@@ -664,7 +669,7 @@ body, #root {
   padding: 1.25rem 1.5rem;
   font-size: 0.95rem;
   font-weight: 700;
-  color: #64748b;
+  color: #71717a;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
@@ -680,13 +685,13 @@ body, #root {
 }
 
 .arch-tab-btn:hover {
-  color: #0f172a;
-  background: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .arch-tab-btn.active {
   color: #f97316;
-  background: #ffffff;
+  background: #121215;
   border-bottom-color: #f97316;
 }
 
@@ -710,13 +715,13 @@ body, #root {
 .arch-details h4 {
   font-size: 1.5rem;
   font-weight: 800;
-  color: #0f172a;
+  color: #ffffff;
   margin: 0 0 1rem;
 }
 
 .arch-details p {
   font-size: 1rem;
-  color: #475569;
+  color: #a1a1aa;
   line-height: 1.65;
   margin: 0 0 1.75rem;
 }
@@ -729,24 +734,24 @@ body, #root {
 
 .spec-item {
   font-size: 0.9rem;
-  color: #334155;
-  background: #f8fafc;
+  color: #e2e8f0;
+  background: #18181c;
   padding: 0.75rem 1rem;
   border-radius: 10px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .arch-code-preview {
-  background: #09090b;
-  border: 1px solid #27272a;
+  background: #000000;
+  border: 1px solid rgba(249, 115, 22, 0.25);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
 }
 
 .code-header {
-  background: #18181b;
-  border-bottom: 1px solid #27272a;
+  background: #121215;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding: 0.75rem 1rem;
   display: flex;
   align-items: center;
@@ -766,7 +771,7 @@ body, #root {
   margin-left: 0.5rem;
   font-family: monospace;
   font-size: 0.8rem;
-  color: #a1a1aa;
+  color: #71717a;
 }
 
 .code-body {
@@ -789,8 +794,8 @@ body, #root {
 }
 
 .ent-cta-card {
-  background: linear-gradient(135deg, #000000 0%, #18181b 100%);
-  border: 1px solid #27272a;
+  background: linear-gradient(135deg, #121215 0%, #1a1a22 100%);
+  border: 1px solid rgba(249, 115, 22, 0.3);
   border-radius: 28px;
   padding: 4rem 3.5rem;
   color: #ffffff;
@@ -798,7 +803,7 @@ body, #root {
   align-items: center;
   justify-content: space-between;
   gap: 3rem;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
 @media (max-width: 850px) {
@@ -961,8 +966,8 @@ body, #root {
   right: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
   z-index: 999;
   display: flex;
   align-items: center;
@@ -971,39 +976,46 @@ body, #root {
 }
 
 .modal-content {
-  background: #ffffff;
+  background: #121215;
+  border: 1px solid rgba(249, 115, 22, 0.3);
   border-radius: 24px;
   padding: 3rem;
   max-width: 480px;
   width: 100%;
   position: relative;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
 }
 
 .modal-close {
   position: absolute;
   top: 1.25rem;
   right: 1.25rem;
-  background: #f4f4f5;
+  background: rgba(255, 255, 255, 0.08);
   border: none;
   width: 36px;
   height: 36px;
   border-radius: 50%;
   font-size: 1.25rem;
-  color: #71717a;
+  color: #a1a1aa;
   cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
 }
 
 .modal-form h3 {
   font-size: 1.6rem;
   font-weight: 800;
-  color: #09090b;
+  color: #ffffff;
   margin: 0 0 0.5rem;
 }
 
 .modal-form p {
   font-size: 0.95rem;
-  color: #71717a;
+  color: #a1a1aa;
   margin: 0 0 1.75rem;
   line-height: 1.5;
 }
@@ -1017,16 +1029,18 @@ body, #root {
   display: block;
   font-size: 0.85rem;
   font-weight: 700;
-  color: #27272a;
+  color: #e2e8f0;
   margin-bottom: 0.5rem;
 }
 
 .form-input {
   width: 100%;
   padding: 0.85rem 1rem;
-  border: 1px solid #e4e4e7;
+  background: #18181c;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 10px;
   font-size: 1rem;
+  color: #ffffff;
   box-sizing: border-box;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -1034,7 +1048,7 @@ body, #root {
 
 .form-input:focus {
   border-color: #f97316;
-  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.25);
 }
 
 .block-btn {
@@ -1049,8 +1063,8 @@ body, #root {
 .success-icon {
   width: 60px;
   height: 60px;
-  background: #fff7ed;
-  color: #ea580c;
+  background: rgba(249, 115, 22, 0.15);
+  color: #f97316;
   font-size: 1.75rem;
   font-weight: 800;
   border-radius: 50%;
@@ -1058,18 +1072,19 @@ body, #root {
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.25rem;
+  border: 1px solid rgba(249, 115, 22, 0.3);
 }
 
 .modal-success h3 {
   font-size: 1.5rem;
-  color: #0f172a;
+  color: #ffffff;
   font-weight: 800;
   margin: 0 0 0.5rem;
 }
 
 .modal-success p {
   font-size: 0.95rem;
-  color: #475569;
+  color: #a1a1aa;
 }
 
 /* Responsive Utilities */
