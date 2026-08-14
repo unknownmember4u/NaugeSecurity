@@ -14,34 +14,121 @@ export function App() {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    // Autoplay background video
-    if (videoRef.current) {
-      videoRef.current.defaultMuted = true;
-      videoRef.current.muted = true;
-      videoRef.current.play().catch((err) => {
+    let videoLoaded = false;
+    let fontsLoaded = false;
+    let windowLoaded = false;
+    let targetProgress = 10;
+
+    // Helper to push targetProgress forward
+    const setTarget = (val) => {
+      if (val > targetProgress) {
+        targetProgress = Math.min(val, 100);
+      }
+    };
+
+    // Smooth ticker moving splashProgress toward real network targetProgress
+    const ticker = setInterval(() => {
+      setSplashProgress((prev) => {
+        if (prev < targetProgress) {
+          const step = Math.ceil((targetProgress - prev) * 0.2) || 1;
+          const next = Math.min(prev + step, 100);
+          if (next >= 100) {
+            clearInterval(ticker);
+            setPageRevealed(true);
+            setTimeout(() => setLoading(false), 500);
+          }
+          return next;
+        }
+        return prev;
+      });
+    }, 30);
+
+    const video = videoRef.current;
+
+    // 1. Monitor Real Background Video Buffer & Network Loading
+    const handleVideoProgress = () => {
+      if (video && video.duration > 0 && video.buffered.length > 0) {
+        const bufferedEnd = video.buffered.end(video.buffered.length - 1);
+        const percent = Math.min((bufferedEnd / video.duration) * 75, 75);
+        setTarget(15 + percent);
+      }
+    };
+
+    const handleVideoCanPlay = () => {
+      videoLoaded = true;
+      setTarget(85);
+      checkAllLoaded();
+    };
+
+    if (video) {
+      video.defaultMuted = true;
+      video.muted = true;
+
+      if (video.readyState >= 3) {
+        videoLoaded = true;
+        setTarget(85);
+      } else {
+        video.addEventListener('progress', handleVideoProgress);
+        video.addEventListener('canplaythrough', handleVideoCanPlay);
+        video.addEventListener('canplay', handleVideoCanPlay);
+        video.load();
+      }
+
+      video.play().catch((err) => {
         console.warn('Autoplay prevented by browser:', err);
       });
     }
 
-    // Splash screen progress simulation
-    const interval = setInterval(() => {
-      setSplashProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          // Trigger entrance effects IMMEDIATELY when splash screen reaches 100%
-          setPageRevealed(true);
-          // Unmount splash screen overlay after its 500ms CSS fade-out transition completes
-          setTimeout(() => {
-            setLoading(false);
-          }, 500);
-          return 100;
-        }
-        const diff = Math.floor(Math.random() * 18) + 12;
-        return Math.min(prev + diff, 100);
-      });
-    }, 110);
+    // 2. Monitor Font Asset Loading (document.fonts.ready API)
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready
+        .then(() => {
+          fontsLoaded = true;
+          setTarget(90);
+          checkAllLoaded();
+        })
+        .catch(() => {
+          fontsLoaded = true;
+          checkAllLoaded();
+        });
+    } else {
+      fontsLoaded = true;
+    }
 
-    return () => clearInterval(interval);
+    // 3. Monitor Network Window Load Event
+    if (document.readyState === 'complete') {
+      windowLoaded = true;
+      setTarget(95);
+      checkAllLoaded();
+    } else {
+      const handleWindowLoad = () => {
+        windowLoaded = true;
+        setTarget(95);
+        checkAllLoaded();
+      };
+      window.addEventListener('load', handleWindowLoad);
+    }
+
+    function checkAllLoaded() {
+      if ((videoLoaded || (video && video.readyState >= 2)) && windowLoaded) {
+        setTarget(100);
+      }
+    }
+
+    // Fallback safety timer: Guarantee page reveal even under severe network throttles
+    const fallbackTimer = setTimeout(() => {
+      setTarget(100);
+    }, 4500);
+
+    return () => {
+      clearInterval(ticker);
+      clearTimeout(fallbackTimer);
+      if (video) {
+        video.removeEventListener('progress', handleVideoProgress);
+        video.removeEventListener('canplaythrough', handleVideoCanPlay);
+        video.removeEventListener('canplay', handleVideoCanPlay);
+      }
+    };
   }, []);
 
   // Track scroll position for dynamic blur effect
