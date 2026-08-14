@@ -1,17 +1,61 @@
 import React, { useRef, useEffect, useState } from 'react';
 import bgVideo from '../assets/images/bg.mp4';
 import '../styles/background.css';
+import NewtonsCradle from '../components/NewtonsCradle';
 
 export function App() {
   const videoRef = useRef(null);
   const [activeTab, setActiveTab] = useState('engine');
+  const [isTabLoading, setIsTabLoading] = useState(false);
   const [demoModalOpen, setDemoModalOpen] = useState(false);
+  const [isDemoSubmitting, setIsDemoSubmitting] = useState(false);
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(true);
   const [splashProgress, setSplashProgress] = useState(0);
   const [pageRevealed, setPageRevealed] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+
+  const [auditModalOpen, setAuditModalOpen] = useState(false);
+  const [isAuditing, setIsAuditing] = useState(false);
+  const [auditProgress, setAuditProgress] = useState(0);
+  const [auditStep, setAuditStep] = useState('');
+
+  const handleTabClick = (tabKey) => {
+    if (tabKey !== activeTab) {
+      setIsTabLoading(true);
+      setActiveTab(tabKey);
+      setTimeout(() => {
+        setIsTabLoading(false);
+      }, 400);
+    }
+  };
+
+  const handleStartAudit = () => {
+    setAuditModalOpen(true);
+    setIsAuditing(true);
+    setAuditProgress(15);
+    setAuditStep('Initializing NaugeSecurity Attack Surface Engine...');
+
+    setTimeout(() => {
+      setAuditProgress(45);
+      setAuditStep('Mapping Subdomains, DNS & Cloud Endpoints...');
+    }, 1100);
+
+    setTimeout(() => {
+      setAuditProgress(80);
+      setAuditStep('Executing Ephemeral Zero-Day Payload Verification...');
+    }, 2300);
+
+    setTimeout(() => {
+      setAuditProgress(100);
+      setAuditStep('Audit Complete! 0 Critical Production Exploits Found.');
+      setTimeout(() => {
+        setIsAuditing(false);
+      }, 700);
+    }, 3600);
+  };
+
 
   useEffect(() => {
     let videoLoaded = false;
@@ -171,12 +215,16 @@ export function App() {
   const handleDemoSubmit = (e) => {
     e.preventDefault();
     if (email) {
-      setEmailSubmitted(true);
+      setIsDemoSubmitting(true);
       setTimeout(() => {
-        setEmailSubmitted(false);
-        setDemoModalOpen(false);
-        setEmail('');
-      }, 2500);
+        setIsDemoSubmitting(false);
+        setEmailSubmitted(true);
+        setTimeout(() => {
+          setEmailSubmitted(false);
+          setDemoModalOpen(false);
+          setEmail('');
+        }, 3000);
+      }, 1600);
     }
   };
 
@@ -186,6 +234,14 @@ export function App() {
       {loading && (
         <div className={`splash-screen ${splashProgress === 100 ? 'splash-exit' : ''}`}>
           <div className="splash-content">
+            <div className="splash-brand">
+              <span className="splash-logo">NaugeSecurity</span>
+              <span className="splash-tag">Autonomous Security Infrastructure</span>
+            </div>
+
+            <div style={{ margin: '2.5rem 0 1.25rem' }}>
+              <NewtonsCradle size={56} speed={1.2} color="#f97316" />
+            </div>
 
             <div className="splash-progress-container">
               <div className="splash-progress-bar" style={{ width: `${splashProgress}%` }} />
@@ -300,6 +356,12 @@ export function App() {
             <div className="ent-cta-group">
               <button className="btn-primary-large" onClick={() => setDemoModalOpen(true)}>
                 Schedule Live Enterprise Demo →
+              </button>
+              <button className="btn-secondary-light btn-with-loader" onClick={handleStartAudit}>
+                <span className="newtons-cradle-inline">
+                  <NewtonsCradle size={22} speed={1.2} color="#f97316" />
+                </span>
+                Run Live Surface Audit
               </button>
               <a href="#architecture" className="btn-outline-large">
                 Explore Architecture Specs
@@ -450,25 +512,32 @@ export function App() {
               <div className="arch-tabs">
                 <button
                   className={`arch-tab-btn ${activeTab === 'engine' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('engine')}
+                  onClick={() => handleTabClick('engine')}
                 >
                   <span className="tab-number">01</span> Autonomous Engine
                 </button>
                 <button
                   className={`arch-tab-btn ${activeTab === 'sandbox' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('sandbox')}
+                  onClick={() => handleTabClick('sandbox')}
                 >
                   <span className="tab-number">02</span> Payload Sandbox
                 </button>
                 <button
                   className={`arch-tab-btn ${activeTab === 'governance' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('governance')}
+                  onClick={() => handleTabClick('governance')}
                 >
                   <span className="tab-number">03</span> Data Governance
                 </button>
               </div>
 
-              <div className="arch-content">
+              <div className="arch-content-container">
+                {isTabLoading && (
+                  <div className="arch-loading-overlay">
+                    <NewtonsCradle size={48} speed={1.0} color="#f97316" />
+                    <span className="arch-loading-text">Loading Spec Telemetry...</span>
+                  </div>
+                )}
+                <div className="arch-content">
                 {activeTab === 'engine' && (
                   <div className="arch-panel">
                     <div className="arch-details">
@@ -594,6 +663,7 @@ security_policy:
                   </div>
                 )}
 
+                </div>
               </div>
             </div>
           </div>
@@ -672,11 +742,19 @@ security_policy:
 
       {/* Demo Modal */}
       {demoModalOpen && (
-        <div className="modal-backdrop" onClick={() => setDemoModalOpen(false)}>
+        <div className="modal-backdrop" onClick={() => !isDemoSubmitting && setDemoModalOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => setDemoModalOpen(false)}>×</button>
+            {!isDemoSubmitting && (
+              <button className="modal-close" onClick={() => setDemoModalOpen(false)}>×</button>
+            )}
 
-            {emailSubmitted ? (
+            {isDemoSubmitting ? (
+              <div className="modal-loading-state">
+                <NewtonsCradle size={52} speed={1.1} color="#ea580c" />
+                <h3 className="modal-loading-title">Provisioning Environment...</h3>
+                <p className="modal-loading-subtext">Initializing dedicated enterprise sandbox node</p>
+              </div>
+            ) : emailSubmitted ? (
               <div className="modal-success">
                 <div className="success-icon">✓</div>
                 <h3>Demo Request Received</h3>
@@ -703,6 +781,44 @@ security_policy:
                   Confirm Demo Request
                 </button>
               </form>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Live Audit Simulation Modal */}
+      {auditModalOpen && (
+        <div className="modal-backdrop" onClick={() => !isAuditing && setAuditModalOpen(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            {!isAuditing && (
+              <button className="modal-close" onClick={() => setAuditModalOpen(false)}>×</button>
+            )}
+
+            {isAuditing ? (
+              <div className="audit-modal-body">
+                <NewtonsCradle size={58} speed={1.0} color="#ea580c" />
+                <h3 style={{ marginTop: '1.5rem', color: '#09090b', fontSize: '1.4rem', fontWeight: 800 }}>
+                  Autonomous Audit In Progress
+                </h3>
+                <p style={{ color: '#71717a', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+                  Executing non-destructive zero-day vulnerability simulations
+                </p>
+                <div className="audit-status-step">{auditStep}</div>
+                <div className="splash-progress-container" style={{ width: '100%', marginTop: '1.5rem' }}>
+                  <div className="splash-progress-bar" style={{ width: `${auditProgress}%` }} />
+                </div>
+              </div>
+            ) : (
+              <div className="modal-success">
+                <div className="success-icon">✓</div>
+                <h3 style={{ color: '#09090b' }}>Surface Audit Complete</h3>
+                <p style={{ color: '#71717a', margin: '0.5rem 0 1.5rem' }}>
+                  NaugeSecurity verified 1,420 attack vectors across zero-day databases with 0 production disruptions.
+                </p>
+                <button className="btn-primary-large block-btn" onClick={() => setAuditModalOpen(false)}>
+                  Close Audit Report
+                </button>
+              </div>
             )}
           </div>
         </div>

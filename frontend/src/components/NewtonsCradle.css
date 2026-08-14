@@ -1,0 +1,193 @@
+/* From Uiverse.io by dovatgabriel */ 
+.newtons-cradle {
+  --uib-size: 50px;
+  --uib-speed: 1.2s;
+  --uib-color: #f97316;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--uib-size);
+  height: var(--uib-size);
+}
+
+.newtons-cradle__dot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 25%;
+  transform-origin: center top;
+}
+
+.newtons-cradle__dot::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 25%;
+  border-radius: 50%;
+  background-color: var(--uib-color);
+  box-shadow: 0 0 12px var(--uib-color-glow, rgba(249, 115, 22, 0.4));
+}
+
+.newtons-cradle__dot:first-child {
+  animation: swing var(--uib-speed) linear infinite;
+}
+
+.newtons-cradle__dot:last-child {
+  animation: swing2 var(--uib-speed) linear infinite;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: ease-out;
+  }
+
+  25% {
+    transform: rotate(70deg);
+    animation-timing-function: ease-in;
+  }
+
+  50% {
+    transform: rotate(0deg);
+    animation-timing-function: linear;
+  }
+}
+
+@keyframes swing2 {
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: linear;
+  }
+
+  50% {
+    transform: rotate(0deg);
+    animation-timing-function: ease-out;
+  }
+
+  75% {
+    transform: rotate(-70deg);
+    animation-timing-function: ease-in;
+  }
+}
+
+/* Helper container classes for versatile loader placement */
+.newtons-cradle-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.newtons-cradle-wrapper .loader-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #a1a1aa;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.newtons-cradle-inline {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.newtons-cradle-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+  gap: 1rem;
+}
+
+/* Modal Loading State */
+.modal-loading-state {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-loading-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #09090b;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.modal-loading-subtext {
+  font-size: 0.9rem;
+  color: #71717a;
+  margin: 0;
+}
+
+/* Architecture Tab Loader Overlay */
+.arch-content-container {
+  position: relative;
+  min-height: 280px;
+}
+
+.arch-loading-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 17, 23, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  gap: 1rem;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.arch-loading-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #f97316;
+  text-transform: uppercase;
+}
+
+/* Button Loading State */
+.btn-with-loader {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* Audit Simulation Modal Overlay */
+.audit-modal-body {
+  text-align: center;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.audit-status-step {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #ea580c;
+  background: rgba(234, 88, 12, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  margin-top: 1rem;
+  border: 1px solid rgba(234, 88, 12, 0.25);
+}
+
