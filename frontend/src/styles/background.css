@@ -198,30 +198,41 @@ body, #root {
   position: relative;
   z-index: 20;
   margin-top: 0;
-  transition: filter 0.12s ease-out, opacity 0.12s ease-out, transform 0.12s ease-out;
-  will-change: filter, opacity, transform;
+  transition: filter 0.12s ease-out, opacity 0.12s ease-out;
+  will-change: filter, opacity;
 }
 
 /* --------------------------------------------------------------------------
-   Sticky Navigation Bar
+   Floating Glassmorphism Notch Navigation Bar (Fixed Top-Center Pinned Window)
    -------------------------------------------------------------------------- */
 .ent-navbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(9, 9, 11, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  border-top-left-radius: 28px;
-  border-top-right-radius: 28px;
-  transition: all 0.3s ease;
+  position: fixed;
+  top: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(-15px);
+  z-index: 1000;
+  width: calc(100% - 3rem);
+  max-width: 980px;
+  background: rgba(18, 18, 22, 0.82);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.ent-navbar.navbar-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
 }
 
 .ent-nav-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 1.15rem 2rem;
+  padding: 0.7rem 1.6rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -234,33 +245,23 @@ body, #root {
 }
 
 .ent-logo-text {
-  font-size: 1.35rem;
-  font-weight: 800;
+  font-family: 'Transcity', sans-serif;
+  font-size: 1.45rem;
   color: #ffffff;
-  letter-spacing: -0.02em;
-}
-
-.ent-badge {
-  background: rgba(249, 115, 22, 0.12);
-  color: #f97316;
-  font-size: 0.65rem;
-  padding: 0.2rem 0.55rem;
-  border-radius: 6px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  border: 1px solid rgba(249, 115, 22, 0.3);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 12px rgba(249, 115, 22, 0.35);
 }
 
 .ent-nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 2.25rem;
 }
 
 .ent-link {
   text-decoration: none;
   color: #a1a1aa;
-  font-size: 0.925rem;
+  font-size: 0.9rem;
   font-weight: 600;
   transition: color 0.2s ease;
 }
@@ -272,25 +273,25 @@ body, #root {
 .ent-nav-actions {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
 }
 
 .btn-secondary-light {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #ffffff;
-  padding: 0.6rem 1.15rem;
-  border-radius: 10px;
-  font-size: 0.875rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .btn-secondary-light:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
   color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
 .btn-primary-dark {

@@ -195,6 +195,28 @@ export function App() {
         </div>
       )}
 
+      {/* Floating Glassmorphism Notch Navigation Bar (Fixed Top-Center Window Pinned) */}
+      <header className={`ent-navbar ${scrollY >= 220 ? 'navbar-visible' : ''}`}>
+        <div className="ent-nav-container">
+          <div className="ent-brand">
+            <span className="ent-logo-text">NaugeSecurity</span>
+          </div>
+
+          <nav className="ent-nav-links">
+            <a href="#platform" className="ent-link">Platform</a>
+            <a href="#features" className="ent-link">Capabilities</a>
+            <a href="#architecture" className="ent-link">Architecture</a>
+            <a href="#compliance" className="ent-link">Compliance</a>
+          </nav>
+
+          <div className="ent-nav-actions">
+            <button className="btn-secondary-light" onClick={() => setDemoModalOpen(true)}>
+              Sign In
+            </button>
+          </div>
+        </div>
+      </header>
+
       {/* Fixed Background Video Layer (Progressively blurs on scroll) */}
       <div 
         className="bg-video-container"
@@ -260,36 +282,8 @@ export function App() {
           style={{
             filter: `blur(${sheetBlur}px)`,
             opacity: sheetOpacity,
-            transform: `scale(${sheetScale})`,
           }}
         >
-
-          {/* Enterprise Header / Sticky Navigation Bar */}
-          <header className="ent-navbar">
-            <div className="ent-nav-container">
-              <div className="ent-brand">
-                <span className="ent-logo-text">NaugeSecurity</span>
-                <span className="ent-badge">ENTERPRISE</span>
-              </div>
-
-              <nav className="ent-nav-links">
-                <a href="#platform" className="ent-link">Platform</a>
-                <a href="#features" className="ent-link">Capabilities</a>
-                <a href="#architecture" className="ent-link">Architecture</a>
-                <a href="#compliance" className="ent-link">Compliance</a>
-                <a href="#pricing" className="ent-link">Enterprise</a>
-              </nav>
-
-              <div className="ent-nav-actions">
-                <button className="btn-secondary-light" onClick={() => setDemoModalOpen(true)}>
-                  Sign In
-                </button>
-                <button className="btn-primary-dark" onClick={() => setDemoModalOpen(true)}>
-                  Request Demo
-                </button>
-              </div>
-            </div>
-          </header>
 
           {/* Enterprise Hero Banner */}
           <div className="ent-hero-container" id="platform">
