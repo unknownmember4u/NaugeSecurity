@@ -218,7 +218,7 @@ export function App() {
       </header>
 
       {/* Fixed Background Video Layer (Progressively blurs on scroll) */}
-      <div 
+      <div
         className="bg-video-container"
         style={{
           filter: `blur(${bgBlur}px)`,
@@ -240,7 +240,7 @@ export function App() {
       </div>
 
       {/* Fixed Glassmorphism Overlay (Increases backdrop blur on scroll) */}
-      <div 
+      <div
         className="glass-overlay"
         style={{
           backdropFilter: `blur(${14 + scrollProgress * 16}px) saturate(120%)`,
@@ -249,7 +249,7 @@ export function App() {
       />
 
       {/* Fixed Hero Title Section (Progressively blurs and fades as user scrolls down) */}
-      <div 
+      <div
         className={`fixed-hero-container ${pageRevealed ? 'page-revealed' : ''}`}
         style={{
           filter: `blur(${heroBlur}px)`,
@@ -276,8 +276,8 @@ export function App() {
         <div className="hero-scroll-spacer" />
 
         {/* Enterprise Page Sheet Section (Swipes up & transitions from BLUR -> CLEAR as user scrolls) */}
-        <section 
-          className="enterprise-page-sheet animate-sheet" 
+        <section
+          className="enterprise-page-sheet animate-sheet"
           id="enterprise-platform"
           style={{
             filter: `blur(${sheetBlur}px)`,
@@ -287,10 +287,7 @@ export function App() {
 
           {/* Enterprise Hero Banner */}
           <div className="ent-hero-container" id="platform">
-            <div className="ent-pill-tag">
-              <span className="pulse-dot"></span>
-              SOC 2 Type II & ISO 27001 Certified Autonomous Security Engine
-            </div>
+
 
             <h2 className="ent-main-heading">
               Continuous Threat Exposure Management Built for Enterprise Scale
