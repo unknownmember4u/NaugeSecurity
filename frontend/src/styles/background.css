@@ -1205,6 +1205,13 @@ body, #root {
    Separated Appearing Animations for Heading "NaugeSecurity" & Page Elements
    -------------------------------------------------------------------------- */
 
+/* Initial hidden states before reveal */
+.animate-title,
+.animate-indicator,
+.animate-sheet {
+  opacity: 0;
+}
+
 /* Heading "NaugeSecurity" Entrance Animation */
 .page-revealed .animate-title {
   animation: heroTitleReveal 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;

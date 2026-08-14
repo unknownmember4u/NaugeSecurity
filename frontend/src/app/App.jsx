@@ -28,10 +28,12 @@ export function App() {
       setSplashProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
+          // Trigger entrance effects IMMEDIATELY when splash screen reaches 100%
+          setPageRevealed(true);
+          // Unmount splash screen overlay after its 500ms CSS fade-out transition completes
           setTimeout(() => {
             setLoading(false);
-            setTimeout(() => setPageRevealed(true), 80);
-          }, 350);
+          }, 500);
           return 100;
         }
         const diff = Math.floor(Math.random() * 18) + 12;
