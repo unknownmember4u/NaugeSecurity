@@ -175,7 +175,7 @@ export function App() {
     };
   }, []);
 
-  // Track scroll position for dynamic blur effect
+  // Track scroll position for dynamic scroll effects
   useEffect(() => {
     let ticking = false;
 
@@ -193,7 +193,7 @@ export function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Calculate dynamic scroll blur & fade metrics (0 to 1 progress over 600px scroll range)
+  // Calculate dynamic scroll metrics over 600px scroll range
   const maxScrollThreshold = typeof window !== 'undefined' ? Math.max(window.innerHeight * 0.75, 450) : 600;
   const scrollProgress = Math.min(Math.max(scrollY / maxScrollThreshold, 0), 1);
 
@@ -252,7 +252,7 @@ export function App() {
       )}
 
       {/* Floating Glassmorphism Notch Navigation Bar (Fixed Top-Center Window Pinned) */}
-      <header className={`ent-navbar ${scrollY >= 220 ? 'navbar-visible' : ''}`}>
+      <header className={`ent-navbar ${scrollY >= 80 ? 'navbar-visible' : ''}`}>
         <div className="ent-nav-container">
           <div className="ent-brand">
             <span className="ent-logo-text">NaugeSecurity</span>
@@ -346,22 +346,20 @@ export function App() {
 
 
             <h2 className="ent-main-heading">
-              AI-Powered Autonomous Web Security Assessment Platform
+              Autonomous Security Intelligence for Web Applications
             </h2>
 
             <p className="ent-main-subtext">
-              Replace legacy point-in-time penetration testing with autonomous AI attack surface simulation, real-time zero-day exploit verification, and instant compliance evidence generation across multi-cloud and on-premise infrastructure.
+              NaugeSecurity maps your attack surface, identifies potential vulnerabilities, correlates security signals, and uses AI-assisted investigation to help you understand what matters and what to fix first.
             </p>
 
             <div className="ent-cta-group">
               <button className="btn-primary-large" onClick={() => setDemoModalOpen(true)}>
-                Schedule Live Enterprise Demo →
+                Start Securing Your Website →
               </button>
-              <button className="btn-outline-large btn-with-loader" onClick={handleStartAudit}>
-                Run Live Surface Audit
-              </button>
-              <a href="#architecture" className="btn-outline-large">
-                Explore Architecture Specs
+
+              <a href="#features" className="btn-outline-large">
+                Explore How It Works
               </a>
             </div>
 
