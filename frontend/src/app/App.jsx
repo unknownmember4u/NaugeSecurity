@@ -207,8 +207,8 @@ export function App() {
   const bgBlur = scrollProgress * 26; // 0px to 26px blur on video
   const bgOpacity = Math.max(1 - scrollProgress * 0.55, 0.45); // 1.0 to 0.45
 
-  // Main enterprise page sheet dynamic styles (Transitions from BLUR -> CLEAR as user scrolls)
-  const sheetBlur = (1 - scrollProgress) * 18; // 18px blur at top -> 0px clear when scrolled
+  // Main enterprise page sheet dynamic styles (No blur effect on this page sheet)
+  const sheetBlur = 0; // Removed blur effect from this page sheet
   const sheetOpacity = Math.min(0.35 + scrollProgress * 0.65, 1); // 0.35 opacity -> 1.0 full opacity
   const sheetScale = 0.98 + scrollProgress * 0.02; // 0.98 -> 1.0 focus scale
 
@@ -336,7 +336,7 @@ export function App() {
           className="enterprise-page-sheet animate-sheet"
           id="enterprise-platform"
           style={{
-            filter: `blur(${sheetBlur}px)`,
+            filter: 'none',
             opacity: sheetOpacity,
           }}
         >
@@ -346,7 +346,7 @@ export function App() {
 
 
             <h2 className="ent-main-heading">
-              Continuous Threat Exposure Management Built for Enterprise Scale
+              AI-Powered Autonomous Web Security Assessment Platform
             </h2>
 
             <p className="ent-main-subtext">
@@ -357,10 +357,7 @@ export function App() {
               <button className="btn-primary-large" onClick={() => setDemoModalOpen(true)}>
                 Schedule Live Enterprise Demo →
               </button>
-              <button className="btn-secondary-light btn-with-loader" onClick={handleStartAudit}>
-                <span className="newtons-cradle-inline">
-                  <NewtonsCradle size={22} speed={1.2} color="#f97316" />
-                </span>
+              <button className="btn-outline-large btn-with-loader" onClick={handleStartAudit}>
                 Run Live Surface Audit
               </button>
               <a href="#architecture" className="btn-outline-large">
@@ -538,34 +535,34 @@ export function App() {
                   </div>
                 )}
                 <div className="arch-content">
-                {activeTab === 'engine' && (
-                  <div className="arch-panel">
-                    <div className="arch-details">
-                      <h4>Distributed Autonomous Attack Graph</h4>
-                      <p>
-                        Our cloud-native attack engine continuously builds a real-time graph of your enterprise assets, trust boundaries, and credential flows. It evaluates attack paths across external endpoints, API gateways, and Kubernetes nodes.
-                      </p>
-                      <div className="arch-specs-list">
-                        <div className="spec-item">
-                          <strong>Scan Rate:</strong> 50,000 requests/sec distributed worker pool
-                        </div>
-                        <div className="spec-item">
-                          <strong>Protocol Support:</strong> HTTP/2, HTTP/3, gRPC, WebSocket, GraphQL, TCP/UDP
-                        </div>
-                        <div className="spec-item">
-                          <strong>Zero-Day Intel:</strong> Daily sync with CVE databases & private exploit research
+                  {activeTab === 'engine' && (
+                    <div className="arch-panel">
+                      <div className="arch-details">
+                        <h4>Distributed Autonomous Attack Graph</h4>
+                        <p>
+                          Our cloud-native attack engine continuously builds a real-time graph of your enterprise assets, trust boundaries, and credential flows. It evaluates attack paths across external endpoints, API gateways, and Kubernetes nodes.
+                        </p>
+                        <div className="arch-specs-list">
+                          <div className="spec-item">
+                            <strong>Scan Rate:</strong> 50,000 requests/sec distributed worker pool
+                          </div>
+                          <div className="spec-item">
+                            <strong>Protocol Support:</strong> HTTP/2, HTTP/3, gRPC, WebSocket, GraphQL, TCP/UDP
+                          </div>
+                          <div className="spec-item">
+                            <strong>Zero-Day Intel:</strong> Daily sync with CVE databases & private exploit research
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="arch-code-preview">
-                      <div className="code-header">
-                        <span className="code-dot red"></span>
-                        <span className="code-dot yellow"></span>
-                        <span className="code-dot green"></span>
-                        <span className="code-filename">naugesec-engine-config.json</span>
-                      </div>
-                      <pre className="code-body">
-                        {`{
+                      <div className="arch-code-preview">
+                        <div className="code-header">
+                          <span className="code-dot red"></span>
+                          <span className="code-dot yellow"></span>
+                          <span className="code-dot green"></span>
+                          <span className="code-filename">naugesec-engine-config.json</span>
+                        </div>
+                        <pre className="code-body">
+                          {`{
   "tenant_id": "ent_nauge_88201",
   "isolation_level": "DEDICATED_TENANT",
   "attack_vector_engine": {
@@ -579,76 +576,76 @@ export function App() {
     "encrypted_transit": "TLS_1_3"
   }
 }`}
-                      </pre>
+                        </pre>
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
-                {activeTab === 'sandbox' && (
-                  <div className="arch-panel">
-                    <div className="arch-details">
-                      <h4>Ephemeral Payload Isolation Sandbox</h4>
-                      <p>
-                        Exploit payloads are never run against raw production databases. NaugeSecurity spins up ephemeral Docker micro-containers that mirror your response signatures to verify vulnerability exploitability safely.
-                      </p>
-                      <div className="arch-specs-list">
-                        <div className="spec-item">
-                          <strong>Isolation Mode:</strong> gVisor microVM container boundaries
-                        </div>
-                        <div className="spec-item">
-                          <strong>Production Safety:</strong> Read-only signature inspection with state rollback
-                        </div>
-                        <div className="spec-item">
-                          <strong>Verification SLA:</strong> Under 30 seconds per attack path hypothesis
+                  {activeTab === 'sandbox' && (
+                    <div className="arch-panel">
+                      <div className="arch-details">
+                        <h4>Ephemeral Payload Isolation Sandbox</h4>
+                        <p>
+                          Exploit payloads are never run against raw production databases. NaugeSecurity spins up ephemeral Docker micro-containers that mirror your response signatures to verify vulnerability exploitability safely.
+                        </p>
+                        <div className="arch-specs-list">
+                          <div className="spec-item">
+                            <strong>Isolation Mode:</strong> gVisor microVM container boundaries
+                          </div>
+                          <div className="spec-item">
+                            <strong>Production Safety:</strong> Read-only signature inspection with state rollback
+                          </div>
+                          <div className="spec-item">
+                            <strong>Verification SLA:</strong> Under 30 seconds per attack path hypothesis
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="arch-code-preview">
-                      <div className="code-header">
-                        <span className="code-dot red"></span>
-                        <span className="code-dot yellow"></span>
-                        <span className="code-dot green"></span>
-                        <span className="code-filename">sandbox-execution-log.sys</span>
-                      </div>
-                      <pre className="code-body">
-                        {`[INFO] Spawning isolated gVisor container sandbox-7749...
+                      <div className="arch-code-preview">
+                        <div className="code-header">
+                          <span className="code-dot red"></span>
+                          <span className="code-dot yellow"></span>
+                          <span className="code-dot green"></span>
+                          <span className="code-filename">sandbox-execution-log.sys</span>
+                        </div>
+                        <pre className="code-body">
+                          {`[INFO] Spawning isolated gVisor container sandbox-7749...
 [VERIFY] Injecting sanitized PoC payload for CVE-2026-1184...
 [RESULT] Vulnerability CONFIRMED: Remote Code Execution vector
 [SCORE] CVSS 9.8 (CRITICAL) - Zero production side-effects.
 [ACTION] Generated remediation patch & forwarded to Jira #SEC-492`}
-                      </pre>
+                        </pre>
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
-                {activeTab === 'governance' && (
-                  <div className="arch-panel">
-                    <div className="arch-details">
-                      <h4>Enterprise Data Sovereignty & Encryption</h4>
-                      <p>
-                        All scan telemetry, architectural maps, and vulnerability reports are encrypted using customer-managed keys (KMS). NaugeSecurity enforces strict zero-retention policies for payload data.
-                      </p>
-                      <div className="arch-specs-list">
-                        <div className="spec-item">
-                          <strong>Encryption:</strong> AES-256-GCM at rest, TLS 1.3 in transit
-                        </div>
-                        <div className="spec-item">
-                          <strong>Key Management:</strong> AWS KMS / Azure Key Vault / HashiCorp Vault BYOK
-                        </div>
-                        <div className="spec-item">
-                          <strong>Data Residency:</strong> US, EU, UK, or APAC dedicated region isolation
+                  {activeTab === 'governance' && (
+                    <div className="arch-panel">
+                      <div className="arch-details">
+                        <h4>Enterprise Data Sovereignty & Encryption</h4>
+                        <p>
+                          All scan telemetry, architectural maps, and vulnerability reports are encrypted using customer-managed keys (KMS). NaugeSecurity enforces strict zero-retention policies for payload data.
+                        </p>
+                        <div className="arch-specs-list">
+                          <div className="spec-item">
+                            <strong>Encryption:</strong> AES-256-GCM at rest, TLS 1.3 in transit
+                          </div>
+                          <div className="spec-item">
+                            <strong>Key Management:</strong> AWS KMS / Azure Key Vault / HashiCorp Vault BYOK
+                          </div>
+                          <div className="spec-item">
+                            <strong>Data Residency:</strong> US, EU, UK, or APAC dedicated region isolation
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="arch-code-preview">
-                      <div className="code-header">
-                        <span className="code-dot red"></span>
-                        <span className="code-dot yellow"></span>
-                        <span className="code-dot green"></span>
-                        <span className="code-filename">data-sovereignty-policy.yaml</span>
-                      </div>
-                      <pre className="code-body">
-                        {`version: "2.4"
+                      <div className="arch-code-preview">
+                        <div className="code-header">
+                          <span className="code-dot red"></span>
+                          <span className="code-dot yellow"></span>
+                          <span className="code-dot green"></span>
+                          <span className="code-filename">data-sovereignty-policy.yaml</span>
+                        </div>
+                        <pre className="code-body">
+                          {`version: "2.4"
 security_policy:
   data_retention_days: 0
   byok_kms_key_arn: "arn:aws:kms:us-east-1:772910:key/sec-nauge-99"
@@ -658,10 +655,10 @@ security_policy:
     - GDPR_ARTICLE_32
   audit_logging:
     immutable_log_stream: true`}
-                      </pre>
+                        </pre>
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
                 </div>
               </div>
