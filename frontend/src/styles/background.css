@@ -494,8 +494,9 @@ body,
   background: #fafafa;
   border-top: 1px solid #f1f5f9;
   border-bottom: 1px solid #f1f5f9;
-  padding: 3rem 2rem;
+  padding: 3rem 0;
   text-align: center;
+  overflow: hidden;
 }
 
 .compliance-label {
@@ -507,14 +508,34 @@ body,
   margin-bottom: 1.75rem;
 }
 
-.compliance-badges {
+.compliance-marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.compliance-marquee-track {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2.5rem;
-  flex-wrap: wrap;
-  max-width: 1100px;
-  margin: 0 auto;
+  gap: 2rem;
+  width: max-content;
+  animation: complianceMarquee 22s linear infinite;
+  will-change: transform;
+}
+
+.ent-compliance-bar:hover .compliance-marquee-track {
+  animation-duration: 80s;
+}
+
+@keyframes complianceMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .badge-item {
@@ -530,11 +551,15 @@ body,
   color: #334155;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
   transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .badge-item:hover {
   border-color: #fdba74;
   background: #fff7ed;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(249, 115, 22, 0.12);
 }
 
 .badge-icon {

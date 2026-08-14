@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import bgVideo from '../assets/images/bg.mp4';
 import '../styles/background.css';
 import NewtonsCradle from '../components/NewtonsCradle';
+import LogoMarquee from '../components/ui/logo-marquee';
 
 export function App() {
   const videoRef = useRef(null);
@@ -394,28 +395,33 @@ export function App() {
           {/* Compliance Logos Bar */}
           <div className="ent-compliance-bar" id="compliance">
             <div className="compliance-label">TRUSTED SECURITY & COMPLIANCE FRAMEWORKS</div>
-            <div className="compliance-badges">
-              <div className="badge-item">
-                <svg viewBox="0 0 24 24" className="badge-icon" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
-                <span>SOC 2 Type II</span>
-              </div>
-              <div className="badge-item">
-                <svg viewBox="0 0 24 24" className="badge-icon" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg>
-                <span>ISO 27001</span>
-              </div>
-              <div className="badge-item">
-                <svg viewBox="0 0 24 24" className="badge-icon" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
-                <span>GDPR Verified</span>
-              </div>
-              <div className="badge-item">
-                <svg viewBox="0 0 24 24" className="badge-icon" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
-                <span>HIPAA Compliant</span>
-              </div>
-              <div className="badge-item">
-                <svg viewBox="0 0 24 24" className="badge-icon" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
-                <span>PCI-DSS v4.0</span>
-              </div>
-            </div>
+            <LogoMarquee
+              logos={[
+                {
+                  icon: <svg viewBox="0 0 24 24" className="badge-icon" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>,
+                  alt: 'SOC 2 Type II'
+                },
+                {
+                  icon: <svg viewBox="0 0 24 24" className="badge-icon" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg>,
+                  alt: 'ISO 27001'
+                },
+                {
+                  icon: <svg viewBox="0 0 24 24" className="badge-icon" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>,
+                  alt: 'GDPR Verified'
+                },
+                {
+                  icon: <svg viewBox="0 0 24 24" className="badge-icon" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>,
+                  alt: 'HIPAA Compliant'
+                },
+                {
+                  icon: <svg viewBox="0 0 24 24" className="badge-icon" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>,
+                  alt: 'PCI-DSS v4.0'
+                }
+              ]}
+              duration={25}
+              durationOnHover={85}
+              gap={32}
+            />
           </div>
 
           {/* Core Platform Capabilities Grid */}
