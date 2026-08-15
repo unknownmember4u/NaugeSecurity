@@ -165,7 +165,7 @@ export function App() {
           <nav className="ent-nav-links">
 
             <a href="#how-it-works" className="ent-link">How It Works</a>
-            <a href="#features" className="ent-link">Capabilities</a>
+            <a href="#ownership-verification" className="ent-link">Capabilities</a>
             <a href="#architecture" className="ent-link">Architecture</a>
             <a href="#compliance" className="ent-link">Compliance</a>
           </nav>
@@ -190,7 +190,7 @@ export function App() {
         <div className="mobile-menu-overlay">
           <nav className="mobile-nav-links">
             <a href="#how-it-works" className="ent-link" onClick={() => setIsMobileMenuOpen(false)}>How It Works</a>
-            <a href="#features" className="ent-link" onClick={() => setIsMobileMenuOpen(false)}>Capabilities</a>
+            <a href="#ownership-verification" className="ent-link" onClick={() => setIsMobileMenuOpen(false)}>Capabilities</a>
             <a href="#architecture" className="ent-link" onClick={() => setIsMobileMenuOpen(false)}>Architecture</a>
             <a href="#compliance" className="ent-link" onClick={() => setIsMobileMenuOpen(false)}>Compliance</a>
           </nav>
@@ -286,7 +286,7 @@ export function App() {
                 Start Securing Your Website →
               </button>
 
-              <a href="#features" className="btn-outline-large">
+              <a href="#how-it-works" className="btn-outline-large">
                 Explore How It Works
               </a>
             </div>
@@ -1130,9 +1130,9 @@ export function App() {
 
               <div className="footer-col">
                 <h5>Product</h5>
-                <a href="#hero">Dashboard</a>
+                <a href="#enterprise-platform">Dashboard</a>
                 <a href="#attack-surface">Attack Surface</a>
-                <a href="#ownership">Security Assessments</a>
+                <a href="#ownership-verification">Security Assessments</a>
                 <a href="#ai-investigation">AI Investigation</a>
                 <a href="#findings">Findings</a>
                 <a href="#reports">Reports</a>
