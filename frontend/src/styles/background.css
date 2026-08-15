@@ -2248,15 +2248,21 @@ body,
   margin: 0;
 }
 
-/* Priority Intelligence Stack Widget */
+/* Priority Intelligence Stack Widget (Wrapped in Plain White Container) */
 .severity-intelligence-stack {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  box-sizing: border-box;
 }
 
 .severity-row-item {
-  background: #ffffff;
+  background: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 16px;
   padding: 1.15rem 1.35rem;
