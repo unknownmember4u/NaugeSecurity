@@ -1028,6 +1028,62 @@ export function App() {
             </div>
           </div>
 
+          {/* Reports Section (Solid Black BG with Crisp White Cards) */}
+          <div className="reports-section" id="reports">
+            <div className="ent-section-inner">
+              <div className="section-header">
+                <span className="section-eyebrow">REPORTS</span>
+                <h3 className="section-title">Turn Security Data Into Clear Reports</h3>
+                <p className="section-subtitle">
+                  Give developers, security teams, and stakeholders the information they need.
+                </p>
+              </div>
+
+              <div className="reports-main-card">
+                <p className="reports-body-text">
+                  Generate structured security reports containing your security posture, discovered assets, findings, evidence, risk information, AI investigation results, and remediation recommendations.
+                </p>
+              </div>
+
+              {/* Report Types Cards (Clean White Cards) */}
+              <div className="reports-types-grid">
+                <div className="report-type-card">
+                  <div className="report-card-top">
+                    <span className="report-badge badge-executive">Executive Summary</span>
+                    <div className="report-icon-box icon-exec">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg>
+                    </div>
+                  </div>
+                  <h4 className="report-card-title">Executive Report</h4>
+                  <p className="report-card-desc">
+                    A concise overview of security posture and major risks.
+                  </p>
+                  <div className="report-card-action">
+                    <span>Export PDF Summary</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+                  </div>
+                </div>
+
+                <div className="report-type-card">
+                  <div className="report-card-top">
+                    <span className="report-badge badge-technical">Technical Specs</span>
+                    <div className="report-icon-box icon-tech">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
+                    </div>
+                  </div>
+                  <h4 className="report-card-title">Technical Report</h4>
+                  <p className="report-card-desc">
+                    Detailed findings, evidence, affected assets, and remediation information.
+                  </p>
+                  <div className="report-card-action">
+                    <span>Export Full Audit Report</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Core Platform Capabilities Grid */}
           <div className="ent-section" id="features">
             <div className="section-header">
