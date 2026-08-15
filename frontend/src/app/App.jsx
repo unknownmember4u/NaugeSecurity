@@ -858,6 +858,86 @@ export function App() {
             </div>
           </div>
 
+          {/* Remediation Section (Flipped Split Layout: Left Flow, Right Content) */}
+          <div className="remediation-section" id="remediation">
+            <div className="ent-section-inner remediation-split">
+              {/* Left Column: Remediation Flow Lifecycle Widget */}
+              <div className="remediation-left-col">
+                <div className="remediation-flow-stack">
+                  <div className="remediation-step-item">
+                    <div className="remediation-step-num">01</div>
+                    <div className="remediation-step-content">
+                      <div className="remediation-step-header">
+                        <h4 className="remediation-step-title">Discover</h4>
+                        <span className="remediation-step-badge">Stage 01</span>
+                      </div>
+                      <p className="remediation-step-desc">Map exposed assets &amp; detect vulnerabilities.</p>
+                    </div>
+                  </div>
+
+                  <div className="remediation-flow-connector">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><polyline points="19 12 12 19 5 12" /></svg>
+                  </div>
+
+                  <div className="remediation-step-item">
+                    <div className="remediation-step-num">02</div>
+                    <div className="remediation-step-content">
+                      <div className="remediation-step-header">
+                        <h4 className="remediation-step-title">Investigate</h4>
+                        <span className="remediation-step-badge">Stage 02</span>
+                      </div>
+                      <p className="remediation-step-desc">AI correlates evidence and analyzes severity.</p>
+                    </div>
+                  </div>
+
+                  <div className="remediation-flow-connector">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><polyline points="19 12 12 19 5 12" /></svg>
+                  </div>
+
+                  <div className="remediation-step-item">
+                    <div className="remediation-step-num">03</div>
+                    <div className="remediation-step-content">
+                      <div className="remediation-step-header">
+                        <h4 className="remediation-step-title">Fix</h4>
+                        <span className="remediation-step-badge">Stage 03</span>
+                      </div>
+                      <p className="remediation-step-desc">Apply structured patch &amp; code remediation guidance.</p>
+                    </div>
+                  </div>
+
+                  <div className="remediation-flow-connector">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><polyline points="19 12 12 19 5 12" /></svg>
+                  </div>
+
+                  <div className="remediation-step-item highlight-remediation">
+                    <div className="remediation-step-num num-highlight">04</div>
+                    <div className="remediation-step-content">
+                      <div className="remediation-step-header">
+                        <h4 className="remediation-step-title">Validate</h4>
+                        <span className="remediation-step-badge badge-highlight">Stage 04</span>
+                      </div>
+                      <p className="remediation-step-desc">Re-assess target to verify complete issue resolution.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Heading, Subheading & Body Text */}
+              <div className="remediation-right-col">
+                <span className="section-eyebrow">REMEDIATION</span>
+                <h3 className="section-title">From Finding to Fix</h3>
+                <p className="section-subtitle">
+                  Security insights are only useful when they lead to action.
+                </p>
+                <div className="remediation-body-card">
+                  <p className="remediation-body-text">
+                    NaugeSecurity provides structured remediation guidance so developers and security teams can understand what needs to change. After remediation, validation assessments can help determine whether the issue has been resolved.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Core Platform Capabilities Grid */}
           <div className="ent-section" id="features">
             <div className="section-header">
