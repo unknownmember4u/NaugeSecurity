@@ -638,6 +638,82 @@ export function App() {
             </div>
           </div>
 
+          {/* AI Investigation Section (Flipped Split Layout: Left Pillars Stack, Right Content) */}
+          <div className="ai-investigation-section" id="ai-investigation">
+            <div className="ent-section-inner ai-investigation-split">
+              {/* Left Column: Innovative AI Feature Stack / Pillar Items */}
+              <div className="ai-investigation-left-col">
+                <div className="ai-pillars-stack">
+                  <div className="ai-pillar-item">
+                    <div className="ai-pillar-icon-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg>
+                    </div>
+                    <div className="ai-pillar-content">
+                      <div className="ai-pillar-header">
+                        <h4 className="ai-pillar-title">Evidence</h4>
+                        <span className="ai-pillar-tag">Pillar 01</span>
+                      </div>
+                      <p className="ai-pillar-body">Understand the signals behind a finding.</p>
+                    </div>
+                  </div>
+
+                  <div className="ai-pillar-item">
+                    <div className="ai-pillar-icon-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" /></svg>
+                    </div>
+                    <div className="ai-pillar-content">
+                      <div className="ai-pillar-header">
+                        <h4 className="ai-pillar-title">Correlation</h4>
+                        <span className="ai-pillar-tag">Pillar 02</span>
+                      </div>
+                      <p className="ai-pillar-body">Connect related assets and security findings.</p>
+                    </div>
+                  </div>
+
+                  <div className="ai-pillar-item">
+                    <div className="ai-pillar-icon-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><polyline points="9 12 11 14 15 10" /></svg>
+                    </div>
+                    <div className="ai-pillar-content">
+                      <div className="ai-pillar-header">
+                        <h4 className="ai-pillar-title">Confidence</h4>
+                        <span className="ai-pillar-tag">Pillar 03</span>
+                      </div>
+                      <p className="ai-pillar-body">Separate the severity of an issue from confidence in the assessment.</p>
+                    </div>
+                  </div>
+
+                  <div className="ai-pillar-item">
+                    <div className="ai-pillar-icon-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z" /><path d="M12 12L2.1 12" /><path d="M12 12l4.3-7.5" /><circle cx="12" cy="12" r="3" /></svg>
+                    </div>
+                    <div className="ai-pillar-content">
+                      <div className="ai-pillar-header">
+                        <h4 className="ai-pillar-title">Reasoning</h4>
+                        <span className="ai-pillar-tag">Pillar 04</span>
+                      </div>
+                      <p className="ai-pillar-body">Understand why the AI reached its assessment.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Heading, Subheading & Body Text */}
+              <div className="ai-investigation-right-col">
+                <span className="section-eyebrow">AI INVESTIGATION</span>
+                <h3 className="section-title light-theme-title">AI That Investigates, Not Just Summarizes</h3>
+                <p className="section-subtitle light-theme-subtitle">
+                  Turn security signals into evidence-backed investigations.
+                </p>
+                <div className="ai-investigation-body-card">
+                  <p className="ai-investigation-body-text">
+                    NaugeSecurity's AI-assisted investigation layer analyzes discovered evidence and related security signals to help determine what a finding means, why it matters, and what should be investigated next.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Core Platform Capabilities Grid */}
           <div className="ent-section" id="features">
             <div className="section-header">
