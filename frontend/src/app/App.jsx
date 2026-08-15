@@ -938,6 +938,96 @@ export function App() {
             </div>
           </div>
 
+          {/* Security Posture Section (Plain White BG) */}
+          <div className="posture-section" id="posture">
+            <div className="ent-section-inner">
+              <div className="section-header">
+                <span className="section-eyebrow">SECURITY POSTURE</span>
+                <h3 className="section-title light-theme-title">Understand Your Security Posture Over Time</h3>
+                <p className="section-subtitle light-theme-subtitle">
+                  Track how your application's security changes as you discover, fix, and validate issues.
+                </p>
+              </div>
+
+              <div className="posture-main-card">
+                <p className="posture-body-text">
+                  Compare assessments over time to understand changes in vulnerabilities, attack-surface exposure, and overall security posture. Use historical context to measure whether security is actually improving.
+                </p>
+              </div>
+
+              {/* Historical Context Analytics & Assessment Trend Stack */}
+              <div className="posture-metrics-container">
+                <div className="posture-stats-row">
+                  <div className="posture-stat-card">
+                    <div className="posture-stat-top">
+                      <span className="posture-stat-label">Security Posture Score</span>
+                      <span className="posture-stat-trend trend-positive">+18% vs Last Month</span>
+                    </div>
+                    <div className="posture-stat-value">94<span className="posture-stat-unit">/100</span></div>
+                    <div className="posture-progress-track">
+                      <div className="posture-progress-fill" style={{ width: '94%' }}></div>
+                    </div>
+                  </div>
+
+                  <div className="posture-stat-card">
+                    <div className="posture-stat-top">
+                      <span className="posture-stat-label">Vulnerability Reduction</span>
+                      <span className="posture-stat-trend trend-positive">-87% Resolved</span>
+                    </div>
+                    <div className="posture-stat-value">3 <span className="posture-stat-unit">Active Findings</span></div>
+                    <div className="posture-progress-track">
+                      <div className="posture-progress-fill fill-green" style={{ width: '87%' }}></div>
+                    </div>
+                  </div>
+
+                  <div className="posture-stat-card">
+                    <div className="posture-stat-top">
+                      <span className="posture-stat-label">Mean Time To Validate</span>
+                      <span className="posture-stat-trend trend-neutral">Automated</span>
+                    </div>
+                    <div className="posture-stat-value">4.2 <span className="posture-stat-unit">Hours</span></div>
+                    <div className="posture-progress-track">
+                      <div className="posture-progress-fill fill-blue" style={{ width: '92%' }}></div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Timeline Assessments Stack */}
+                <div className="posture-history-grid">
+                  <div className="history-node-card">
+                    <div className="history-node-header">
+                      <span className="history-badge">Assessment #01</span>
+                      <span className="history-date">Initial Baseline</span>
+                    </div>
+                    <h4 className="history-node-title">Attack Surface Discovery</h4>
+                    <p className="history-node-desc">Mapped 18 subdomains, 42 APIs, and detected 24 open vulnerabilities.</p>
+                    <div className="history-status-tag tag-orange">24 Findings</div>
+                  </div>
+
+                  <div className="history-node-card">
+                    <div className="history-node-header">
+                      <span className="history-badge">Assessment #02</span>
+                      <span className="history-date">AI Investigation</span>
+                    </div>
+                    <h4 className="history-node-title">Evidence &amp; Correlation</h4>
+                    <p className="history-node-desc">AI prioritized Critical/High risks; remediation guidance dispatched to engineering.</p>
+                    <div className="history-status-tag tag-amber">8 Findings</div>
+                  </div>
+
+                  <div className="history-node-card highlight-posture">
+                    <div className="history-node-header">
+                      <span className="history-badge badge-active">Assessment #03</span>
+                      <span className="history-date date-active">Current Verified State</span>
+                    </div>
+                    <h4 className="history-node-title">Validation &amp; Hardening</h4>
+                    <p className="history-node-desc">Automated validation confirmed remediated vulnerabilities and hardened attack surface.</p>
+                    <div className="history-status-tag tag-green">3 Low Remaining</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Core Platform Capabilities Grid */}
           <div className="ent-section" id="features">
             <div className="section-header">
