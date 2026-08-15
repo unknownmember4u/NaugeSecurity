@@ -570,6 +570,74 @@ export function App() {
             </div>
           </div>
 
+          {/* Attack Surface Section (Split Side-by-Side Layout) */}
+          <div className="attack-surface-section" id="attack-surface">
+            <div className="ent-section-inner attack-surface-split">
+              {/* Left Column: Heading, Subheading & Body Content */}
+              <div className="attack-surface-left-col">
+                <span className="section-eyebrow">ATTACK SURFACE</span>
+                <h3 className="section-title">See Your Entire Attack Surface</h3>
+                <p className="section-subtitle">
+                  Turn scattered infrastructure into a structured security map.
+                </p>
+                <div className="attack-surface-body-card">
+                  <p className="attack-surface-body-text">
+                    Modern applications are rarely limited to a single domain. NaugeSecurity discovers and organizes the assets that make up your web attack surface, helping you understand the relationship between domains, subdomains, endpoints, APIs, technologies, and exposed services.
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Column: 2x2 Cards Grid */}
+              <div className="attack-surface-right-col">
+                <div className="attack-surface-grid">
+                  <div className="attack-surface-card">
+                    <div className="attack-card-header">
+                      <span className="attack-card-tag">Asset Type 01</span>
+                      <div className="attack-icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>
+                      </div>
+                    </div>
+                    <h4 className="attack-card-title">Domains</h4>
+                    <p className="attack-card-body">Understand your registered and discovered domains.</p>
+                  </div>
+
+                  <div className="attack-surface-card">
+                    <div className="attack-card-header">
+                      <span className="attack-card-tag">Asset Type 02</span>
+                      <div className="attack-icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2" /><rect x="2" y="14" width="20" height="8" rx="2" ry="2" /><line x1="6" y1="6" x2="6.01" y2="6" /><line x1="6" y1="18" x2="6.01" y2="18" /></svg>
+                      </div>
+                    </div>
+                    <h4 className="attack-card-title">Subdomains</h4>
+                    <p className="attack-card-body">Identify additional web-facing infrastructure.</p>
+                  </div>
+
+                  <div className="attack-surface-card">
+                    <div className="attack-card-header">
+                      <span className="attack-card-tag">Asset Type 03</span>
+                      <div className="attack-icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 17 22 12" /></svg>
+                      </div>
+                    </div>
+                    <h4 className="attack-card-title">Endpoints &amp; APIs</h4>
+                    <p className="attack-card-body">Discover application entry points and exposed interfaces.</p>
+                  </div>
+
+                  <div className="attack-surface-card">
+                    <div className="attack-card-header">
+                      <span className="attack-card-tag">Asset Type 04</span>
+                      <div className="attack-icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" /></svg>
+                      </div>
+                    </div>
+                    <h4 className="attack-card-title">Technologies</h4>
+                    <p className="attack-card-body">Identify technologies and services contributing to your attack surface.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Core Platform Capabilities Grid */}
           <div className="ent-section" id="features">
             <div className="section-header">
