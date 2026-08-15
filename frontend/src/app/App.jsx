@@ -651,7 +651,7 @@ export function App() {
                     <div className="ai-pillar-content">
                       <div className="ai-pillar-header">
                         <h4 className="ai-pillar-title">Evidence</h4>
-                        <span className="ai-pillar-tag">Pillar 01</span>
+
                       </div>
                       <p className="ai-pillar-body">Understand the signals behind a finding.</p>
                     </div>
@@ -664,7 +664,7 @@ export function App() {
                     <div className="ai-pillar-content">
                       <div className="ai-pillar-header">
                         <h4 className="ai-pillar-title">Correlation</h4>
-                        <span className="ai-pillar-tag">Pillar 02</span>
+
                       </div>
                       <p className="ai-pillar-body">Connect related assets and security findings.</p>
                     </div>
@@ -677,7 +677,7 @@ export function App() {
                     <div className="ai-pillar-content">
                       <div className="ai-pillar-header">
                         <h4 className="ai-pillar-title">Confidence</h4>
-                        <span className="ai-pillar-tag">Pillar 03</span>
+
                       </div>
                       <p className="ai-pillar-body">Separate the severity of an issue from confidence in the assessment.</p>
                     </div>
@@ -690,7 +690,7 @@ export function App() {
                     <div className="ai-pillar-content">
                       <div className="ai-pillar-header">
                         <h4 className="ai-pillar-title">Reasoning</h4>
-                        <span className="ai-pillar-tag">Pillar 04</span>
+
                       </div>
                       <p className="ai-pillar-body">Understand why the AI reached its assessment.</p>
                     </div>
@@ -819,7 +819,7 @@ export function App() {
               <div className="pipeline-flow-wrapper">
                 <div className="pipeline-flow-grid">
                   <div className="pipeline-flow-node">
-                    <div className="pipeline-node-number">01</div>
+
                     <h4 className="pipeline-node-title">Evidence</h4>
                     <p className="pipeline-node-desc">Observed signals &amp; raw findings</p>
                   </div>
@@ -829,7 +829,7 @@ export function App() {
                   </div>
 
                   <div className="pipeline-flow-node">
-                    <div className="pipeline-node-number">02</div>
+
                     <h4 className="pipeline-node-title">Analysis</h4>
                     <p className="pipeline-node-desc">AI correlation &amp; risk modeling</p>
                   </div>
@@ -839,7 +839,6 @@ export function App() {
                   </div>
 
                   <div className="pipeline-flow-node">
-                    <div className="pipeline-node-number">03</div>
                     <h4 className="pipeline-node-title">Confidence</h4>
                     <p className="pipeline-node-desc">Impact scoring &amp; verification</p>
                   </div>
@@ -849,7 +848,6 @@ export function App() {
                   </div>
 
                   <div className="pipeline-flow-node highlight-node">
-                    <div className="pipeline-node-number">04</div>
                     <h4 className="pipeline-node-title">Recommended Action</h4>
                     <p className="pipeline-node-desc">Targeted remediation guidance</p>
                   </div>
@@ -864,60 +862,40 @@ export function App() {
               {/* Left Column: Remediation Flow Lifecycle Widget */}
               <div className="remediation-left-col">
                 <div className="remediation-flow-stack">
-                  <div className="remediation-step-item">
-                    <div className="remediation-step-num">01</div>
-                    <div className="remediation-step-content">
-                      <div className="remediation-step-header">
-                        <h4 className="remediation-step-title">Discover</h4>
-                        <span className="remediation-step-badge">Stage 01</span>
-                      </div>
-                      <p className="remediation-step-desc">Map exposed assets &amp; detect vulnerabilities.</p>
-                    </div>
+                  <div className="remediation-step-item video-card">
+                    <video className="card-bg-video" autoPlay loop muted playsInline src={bgVideo} />
+                    <div className="card-video-overlay" />
+                    <h4 className="remediation-step-title">Discover</h4>
                   </div>
 
                   <div className="remediation-flow-connector">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><polyline points="19 12 12 19 5 12" /></svg>
                   </div>
 
-                  <div className="remediation-step-item">
-                    <div className="remediation-step-num">02</div>
-                    <div className="remediation-step-content">
-                      <div className="remediation-step-header">
-                        <h4 className="remediation-step-title">Investigate</h4>
-                        <span className="remediation-step-badge">Stage 02</span>
-                      </div>
-                      <p className="remediation-step-desc">AI correlates evidence and analyzes severity.</p>
-                    </div>
+                  <div className="remediation-step-item video-card">
+                    <video className="card-bg-video" autoPlay loop muted playsInline src={bgVideo} />
+                    <div className="card-video-overlay" />
+                    <h4 className="remediation-step-title">Investigate</h4>
                   </div>
 
                   <div className="remediation-flow-connector">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><polyline points="19 12 12 19 5 12" /></svg>
                   </div>
 
-                  <div className="remediation-step-item">
-                    <div className="remediation-step-num">03</div>
-                    <div className="remediation-step-content">
-                      <div className="remediation-step-header">
-                        <h4 className="remediation-step-title">Fix</h4>
-                        <span className="remediation-step-badge">Stage 03</span>
-                      </div>
-                      <p className="remediation-step-desc">Apply structured patch &amp; code remediation guidance.</p>
-                    </div>
+                  <div className="remediation-step-item video-card">
+                    <video className="card-bg-video" autoPlay loop muted playsInline src={bgVideo} />
+                    <div className="card-video-overlay" />
+                    <h4 className="remediation-step-title">Fix</h4>
                   </div>
 
                   <div className="remediation-flow-connector">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><polyline points="19 12 12 19 5 12" /></svg>
                   </div>
 
-                  <div className="remediation-step-item highlight-remediation">
-                    <div className="remediation-step-num num-highlight">04</div>
-                    <div className="remediation-step-content">
-                      <div className="remediation-step-header">
-                        <h4 className="remediation-step-title">Validate</h4>
-                        <span className="remediation-step-badge badge-highlight">Stage 04</span>
-                      </div>
-                      <p className="remediation-step-desc">Re-assess target to verify complete issue resolution.</p>
-                    </div>
+                  <div className="remediation-step-item video-card highlight-remediation">
+                    <video className="card-bg-video" autoPlay loop muted playsInline src={bgVideo} />
+                    <div className="card-video-overlay highlight-overlay" />
+                    <h4 className="remediation-step-title">Validate</h4>
                   </div>
                 </div>
               </div>
@@ -1084,269 +1062,139 @@ export function App() {
             </div>
           </div>
 
-          {/* Core Platform Capabilities Grid */}
-          <div className="ent-section" id="features">
-            <div className="section-header">
-              <span className="section-eyebrow">ENTERPRISE SECURITY CAPABILITIES</span>
-              <h3 className="section-title">Autonomous Threat Management Engine</h3>
-              <p className="section-subtitle">
-                Comprehensive security orchestration designed to discover, validate, and remediate security vulnerabilities across modern distributed architectures.
-              </p>
-            </div>
-
-            <div className="capabilities-grid">
-
-              <div className="feature-card">
-                <div className="feature-icon-box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /><line x1="11" y1="8" x2="11" y2="14" /><line x1="8" y1="11" x2="14" y2="11" /></svg>
-                </div>
-                <h4 className="feature-title">Autonomous Surface Discovery</h4>
-                <p className="feature-desc">
-                  Continuously map shadow IT, exposed API endpoints, misconfigured bucket storage, and unpatched assets across AWS, Azure, GCP, and hybrid environments with zero manual agents.
+          {/* Why NaugeSecurity Section (Plain White BG) */}
+          <div className="why-naugesecurity-section" id="why-naugesecurity">
+            <div className="ent-section-inner">
+              <div className="section-header">
+                <span className="section-eyebrow">WHY NAUGESECURITY</span>
+                <h3 className="section-title light-theme-title">More Than a Vulnerability Scanner</h3>
+                <p className="section-subtitle light-theme-subtitle">
+                  NaugeSecurity connects the entire security assessment workflow.
                 </p>
-                <ul className="feature-list">
-                  <li>Automatic sub-domain & shadow asset enumeration</li>
-                  <li>Real-time DNS & SSL certificate monitoring</li>
-                  <li>Cloud security posture management (CSPM) integration</li>
-                </ul>
               </div>
 
-              <div className="feature-card">
-                <div className="feature-icon-box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
-                </div>
-                <h4 className="feature-title">Sandboxed Exploit Verification</h4>
-                <p className="feature-desc">
-                  Safely validate vulnerabilities without risking production downtime. NaugeSecurity constructs ephemeral sandbox environments to verify exploitability and compute exact breach impact.
+              <div className="why-main-card">
+                <p className="why-body-text">
+                  Traditional security workflows often require multiple tools for reconnaissance, scanning, analysis, correlation, and reporting. NaugeSecurity brings these stages together into a single workflow, while using AI to help investigate and contextualize the results.
                 </p>
-                <ul className="feature-list">
-                  <li>Non-destructive payload execution engine</li>
-                  <li>Proof-of-concept (PoC) validation chains</li>
-                  <li>Contextual business risk scoring</li>
-                </ul>
               </div>
 
-              <div className="feature-card">
-                <div className="feature-icon-box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg>
-                </div>
-                <h4 className="feature-title">Continuous Compliance Evidence</h4>
-                <p className="feature-desc">
-                  Generate instant, auditor-approved compliance reports and evidence bundles for ISO 27001, SOC 2, NIST CSF, and PCI-DSS automatically.
-                </p>
-                <ul className="feature-list">
-                  <li>One-click auditor export packages</li>
-                  <li>Continuous security control validation</li>
-                  <li>Executive risk scorecards & timeline tracking</li>
-                </ul>
-              </div>
-
-              <div className="feature-card">
-                <div className="feature-icon-box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
-                </div>
-                <h4 className="feature-title">Enterprise SIEM & SOAR Sync</h4>
-                <p className="feature-desc">
-                  Seamlessly push validated security telemetry into Splunk, Datadog, Microsoft Sentinel, Jira, and Slack with automated remediation playbooks.
-                </p>
-                <ul className="feature-list">
-                  <li>Native Webhook & REST API integrations</li>
-                  <li>Bi-directional Jira ticketing & SLA tracking</li>
-                  <li>Automated security orchestration playbooks</li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
-
-          {/* Interactive Architecture Specs Section */}
-          <div className="ent-section bg-light-alt" id="architecture">
-            <div className="section-header">
-              <span className="section-eyebrow">ENTERPRISE TECHNICAL ARCHITECTURE</span>
-              <h3 className="section-title">Built for High-Security Environments</h3>
-              <p className="section-subtitle">
-                Explore how NaugeSecurity ensures absolute data privacy, zero-retention architecture, and sub-minute vulnerability verification.
-              </p>
-            </div>
-
-            <div className="architecture-box">
-              <div className="arch-tabs">
-                <button
-                  className={`arch-tab-btn ${activeTab === 'engine' ? 'active' : ''}`}
-                  onClick={() => handleTabClick('engine')}
-                >
-                  <span className="tab-number">01</span> Autonomous Engine
-                </button>
-                <button
-                  className={`arch-tab-btn ${activeTab === 'sandbox' ? 'active' : ''}`}
-                  onClick={() => handleTabClick('sandbox')}
-                >
-                  <span className="tab-number">02</span> Payload Sandbox
-                </button>
-                <button
-                  className={`arch-tab-btn ${activeTab === 'governance' ? 'active' : ''}`}
-                  onClick={() => handleTabClick('governance')}
-                >
-                  <span className="tab-number">03</span> Data Governance
-                </button>
-              </div>
-
-              <div className="arch-content-container">
-                {isTabLoading && (
-                  <div className="arch-loading-overlay">
-                    <NewtonsCradle size={48} speed={1.0} color="#f97316" />
-                    <span className="arch-loading-text">Loading Spec Telemetry...</span>
+              {/* Three Key Differentiators Grid (Clean White Cards) */}
+              <div className="why-differentiators-grid">
+                <div className="differentiator-card">
+                  <div className="diff-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><polyline points="9 12 11 14 15 10" /></svg>
                   </div>
-                )}
-                <div className="arch-content">
-                  {activeTab === 'engine' && (
-                    <div className="arch-panel">
-                      <div className="arch-details">
-                        <h4>Distributed Autonomous Attack Graph</h4>
-                        <p>
-                          Our cloud-native attack engine continuously builds a real-time graph of your enterprise assets, trust boundaries, and credential flows. It evaluates attack paths across external endpoints, API gateways, and Kubernetes nodes.
-                        </p>
-                        <div className="arch-specs-list">
-                          <div className="spec-item">
-                            <strong>Scan Rate:</strong> 50,000 requests/sec distributed worker pool
-                          </div>
-                          <div className="spec-item">
-                            <strong>Protocol Support:</strong> HTTP/2, HTTP/3, gRPC, WebSocket, GraphQL, TCP/UDP
-                          </div>
-                          <div className="spec-item">
-                            <strong>Zero-Day Intel:</strong> Daily sync with CVE databases & private exploit research
-                          </div>
-                        </div>
-                      </div>
-                      <div className="arch-code-preview">
-                        <div className="code-header">
-                          <span className="code-dot red"></span>
-                          <span className="code-dot yellow"></span>
-                          <span className="code-dot green"></span>
-                          <span className="code-filename">naugesec-engine-config.json</span>
-                        </div>
-                        <pre className="code-body">
-                          {`{
-  "tenant_id": "ent_nauge_88201",
-  "isolation_level": "DEDICATED_TENANT",
-  "attack_vector_engine": {
-    "continuous_scan": true,
-    "max_concurrent_workers": 128,
-    "safe_payload_sanitization": "STRICT_ENFORCED",
-    "zero_day_intel_feed": "REALTIME"
-  },
-  "siem_export": {
-    "target": "DATADOG_HEC",
-    "encrypted_transit": "TLS_1_3"
-  }
-}`}
-                        </pre>
-                      </div>
-                    </div>
-                  )}
+                  <h4 className="diff-card-title">Verified First</h4>
+                  <p className="diff-card-desc">
+                    Ownership verification establishes the boundary before assessment.
+                  </p>
+                </div>
 
-                  {activeTab === 'sandbox' && (
-                    <div className="arch-panel">
-                      <div className="arch-details">
-                        <h4>Ephemeral Payload Isolation Sandbox</h4>
-                        <p>
-                          Exploit payloads are never run against raw production databases. NaugeSecurity spins up ephemeral Docker micro-containers that mirror your response signatures to verify vulnerability exploitability safely.
-                        </p>
-                        <div className="arch-specs-list">
-                          <div className="spec-item">
-                            <strong>Isolation Mode:</strong> gVisor microVM container boundaries
-                          </div>
-                          <div className="spec-item">
-                            <strong>Production Safety:</strong> Read-only signature inspection with state rollback
-                          </div>
-                          <div className="spec-item">
-                            <strong>Verification SLA:</strong> Under 30 seconds per attack path hypothesis
-                          </div>
-                        </div>
-                      </div>
-                      <div className="arch-code-preview">
-                        <div className="code-header">
-                          <span className="code-dot red"></span>
-                          <span className="code-dot yellow"></span>
-                          <span className="code-dot green"></span>
-                          <span className="code-filename">sandbox-execution-log.sys</span>
-                        </div>
-                        <pre className="code-body">
-                          {`[INFO] Spawning isolated gVisor container sandbox-7749...
-[VERIFY] Injecting sanitized PoC payload for CVE-2026-1184...
-[RESULT] Vulnerability CONFIRMED: Remote Code Execution vector
-[SCORE] CVSS 9.8 (CRITICAL) - Zero production side-effects.
-[ACTION] Generated remediation patch & forwarded to Jira #SEC-492`}
-                        </pre>
-                      </div>
-                    </div>
-                  )}
+                <div className="differentiator-card">
+                  <div className="diff-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /><line x1="11" y1="8" x2="11" y2="14" /><line x1="8" y1="11" x2="14" y2="11" /></svg>
+                  </div>
+                  <h4 className="diff-card-title">Context Over Noise</h4>
+                  <p className="diff-card-desc">
+                    Findings are connected to assets, evidence, and related security signals.
+                  </p>
+                </div>
 
-                  {activeTab === 'governance' && (
-                    <div className="arch-panel">
-                      <div className="arch-details">
-                        <h4>Enterprise Data Sovereignty & Encryption</h4>
-                        <p>
-                          All scan telemetry, architectural maps, and vulnerability reports are encrypted using customer-managed keys (KMS). NaugeSecurity enforces strict zero-retention policies for payload data.
-                        </p>
-                        <div className="arch-specs-list">
-                          <div className="spec-item">
-                            <strong>Encryption:</strong> AES-256-GCM at rest, TLS 1.3 in transit
-                          </div>
-                          <div className="spec-item">
-                            <strong>Key Management:</strong> AWS KMS / Azure Key Vault / HashiCorp Vault BYOK
-                          </div>
-                          <div className="spec-item">
-                            <strong>Data Residency:</strong> US, EU, UK, or APAC dedicated region isolation
-                          </div>
-                        </div>
-                      </div>
-                      <div className="arch-code-preview">
-                        <div className="code-header">
-                          <span className="code-dot red"></span>
-                          <span className="code-dot yellow"></span>
-                          <span className="code-dot green"></span>
-                          <span className="code-filename">data-sovereignty-policy.yaml</span>
-                        </div>
-                        <pre className="code-body">
-                          {`version: "2.4"
-security_policy:
-  data_retention_days: 0
-  byok_kms_key_arn: "arn:aws:kms:us-east-1:772910:key/sec-nauge-99"
-  compliance_regimes:
-    - SOC2_TYPE_II
-    - ISO_27001_2022
-    - GDPR_ARTICLE_32
-  audit_logging:
-    immutable_log_stream: true`}
-                        </pre>
-                      </div>
-                    </div>
-                  )}
-
+                <div className="differentiator-card">
+                  <div className="diff-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z" /><path d="M12 12L2.5 7.5" /><path d="M12 12v10" /></svg>
+                  </div>
+                  <h4 className="diff-card-title">AI-Assisted Investigation</h4>
+                  <p className="diff-card-desc">
+                    AI helps analyze and explain findings instead of simply generating another list of alerts.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Call to Action Banner */}
-          <div className="ent-cta-banner-container" id="pricing">
-            <div className="ent-cta-card">
-              <div className="cta-content">
-                <h3 className="cta-title">Elevate Your Enterprise Security Posture Today</h3>
-                <p className="cta-text">
-                  Schedule a 30-minute technical session with our principal security architects and receive a complimentary attack surface assessment.
+          {/* Built for Security Teams & Developers (Solid Black BG with Clean White Cards) */}
+          <div className="built-for-section" id="built-for-teams">
+            <div className="ent-section-inner">
+              <div className="section-header">
+                <span className="section-eyebrow">BUILT FOR TEAMS &amp; DEVELOPERS</span>
+                <h3 className="section-title">Built for the People Who Secure Applications</h3>
+                <p className="section-subtitle">
+                  Technical depth for security engineers. Clear answers for developers.
                 </p>
               </div>
-              <div className="cta-action">
-                <button className="btn-cta-light" onClick={() => setDemoModalOpen(true)}>
-                  Request Enterprise Demo
-                </button>
+
+              <div className="personas-grid">
+                <div className="persona-card">
+                  <div className="persona-header">
+                    <span className="persona-badge badge-dev">Developer</span>
+                    <div className="persona-icon-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
+                    </div>
+                  </div>
+                  <h4 className="persona-title">Developer</h4>
+                  <h5 className="persona-tagline">Find the issue. Understand the cause. Fix it.</h5>
+                  <p className="persona-body">
+                    NaugeSecurity provides developers with actionable findings and remediation guidance without requiring them to navigate multiple security tools.
+                  </p>
+                </div>
+
+                <div className="persona-card">
+                  <div className="persona-header">
+                    <span className="persona-badge badge-sec">Security Engineer</span>
+                    <div className="persona-icon-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
+                    </div>
+                  </div>
+                  <h4 className="persona-title">Security Engineer</h4>
+                  <h5 className="persona-tagline">Investigate deeper. Correlate evidence. Prioritize risk.</h5>
+                  <p className="persona-body">
+                    Get visibility into attack surface, findings, evidence, relationships, and AI-assisted investigations.
+                  </p>
+                </div>
+
+                <div className="persona-card">
+                  <div className="persona-header">
+                    <span className="persona-badge badge-owner">Product / Website Owner</span>
+                    <div className="persona-icon-box">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 3v18h18" /><path d="M18 9l-5 5-2-2-4 4" /></svg>
+                    </div>
+                  </div>
+                  <h4 className="persona-title">Product / Website Owner</h4>
+                  <h5 className="persona-tagline">Understand your security posture at a glance.</h5>
+                  <p className="persona-body">
+                    See the risks that matter, track security improvements, and generate clear reports for stakeholders.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Enterprise Footer */}
+          {/* Final Call To Action Banner */}
+          <div className="final-cta-section" id="final-cta">
+            <div className="ent-section-inner">
+              <div className="final-cta-card">
+                <h3 className="final-cta-title">Know What You're Exposing. Know What Matters.</h3>
+                <p className="final-cta-subheading">
+                  Start with a verified website and turn your attack surface into actionable security intelligence.
+                </p>
+                <p className="final-cta-body">
+                  NaugeSecurity helps you move from discovery to investigation, from investigation to remediation, and from remediation to validated security improvements.
+                </p>
+                <div className="final-cta-buttons">
+                  <button className="btn-primary-large" onClick={() => setAuditModalOpen(true)}>
+                    Start Your First Assessment
+                  </button>
+                  <button className="btn-secondary-large" onClick={() => setDemoModalOpen(true)}>
+                    Explore NaugeSecurity
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Site Footer */}
           <footer className="ent-footer">
             <div className="footer-container">
               <div className="footer-col main-col">
@@ -1354,7 +1202,7 @@ security_policy:
                   <span className="footer-logo">NaugeSecurity</span>
                 </div>
                 <p className="footer-desc">
-                  Autonomous attack surface management & continuous vulnerability validation engine for global enterprises.
+                  NaugeSecurity — Autonomous Security Intelligence for the Modern Web.
                 </p>
                 <div className="system-status">
                   <span className="status-dot"></span>
@@ -1363,37 +1211,41 @@ security_policy:
               </div>
 
               <div className="footer-col">
-                <h5>Platform</h5>
-                <a href="#features">Attack Surface Discovery</a>
-                <a href="#features">Exploit Sandbox</a>
-                <a href="#architecture">Architecture Specs</a>
-                <a href="#compliance">Compliance Center</a>
+                <h5>Product</h5>
+                <a href="#hero">Dashboard</a>
+                <a href="#attack-surface">Attack Surface</a>
+                <a href="#ownership">Security Assessments</a>
+                <a href="#ai-investigation">AI Investigation</a>
+                <a href="#findings">Findings</a>
+                <a href="#reports">Reports</a>
               </div>
 
               <div className="footer-col">
-                <h5>Solutions</h5>
-                <a href="#platform">Multi-Cloud Security</a>
-                <a href="#platform">API Vulnerability Management</a>
-                <a href="#platform">Shadow IT Enumeration</a>
-                <a href="#platform">CISO Executive Reporting</a>
+                <h5>Resources</h5>
+                <a href="#documentation">Documentation</a>
+                <a href="#security">Security</a>
+                <a href="#api">API</a>
+                <a href="#changelog">Changelog</a>
               </div>
 
               <div className="footer-col">
-                <h5>Enterprise</h5>
-                <a href="#compliance">SOC 2 Type II Report</a>
-                <a href="#compliance">ISO 27001 Certification</a>
-                <a href="#architecture">BYOK KMS Encryption</a>
-                <a href="#pricing">Contact Sales</a>
+                <h5>Company</h5>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="https://github.com/unknownmember4u/NaugeSecurity" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+
+              <div className="footer-col">
+                <h5>Legal</h5>
+                <a href="#privacy">Privacy</a>
+                <a href="#terms">Terms</a>
+                <a href="#disclosure">Responsible Disclosure</a>
               </div>
             </div>
 
             <div className="footer-bottom">
               <p>© {new Date().getFullYear()} NaugeSecurity Inc. All rights reserved.</p>
-              <div className="footer-legal">
-                <a href="#privacy">Privacy Policy</a>
-                <a href="#terms">Terms of Service</a>
-                <a href="#security">Security Statement</a>
-              </div>
+              <p className="footer-tagline">NaugeSecurity — Autonomous Security Intelligence for the Modern Web.</p>
             </div>
           </footer>
 
