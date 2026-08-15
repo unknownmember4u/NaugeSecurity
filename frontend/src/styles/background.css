@@ -1587,8 +1587,8 @@ body,
 }
 
 .workflow-step-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
   border-radius: 20px;
   padding: 1.45rem 1.6rem;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1598,8 +1598,10 @@ body,
   min-height: 165px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 .workflow-step-card::before {
@@ -2580,7 +2582,7 @@ body,
 
 .remediation-step-item {
   width: 100%;
-  background: #ffffff;
+  background: #ffffff !important;
   border: 1px solid #e2e8f0;
   border-radius: 20px;
   padding: 1.1rem 1.6rem;
@@ -2591,50 +2593,17 @@ body,
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   box-sizing: border-box;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
-.remediation-step-item.video-card {
-  position: relative;
-  overflow: hidden;
-  background: transparent !important;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  z-index: 1;
-}
-
-.card-bg-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%) scale(1.1);
-  object-fit: cover;
-  z-index: 1;
-  filter: blur(8px) brightness(0.9);
-  pointer-events: none;
-}
-
-.card-video-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.76);
-  backdrop-filter: blur(12px) saturate(160%);
-  -webkit-backdrop-filter: blur(12px) saturate(160%);
-  z-index: 2;
-  transition: all 0.25s ease;
-}
-
-.card-video-overlay.highlight-overlay {
-  background: rgba(255, 247, 237, 0.85);
-}
-
-.remediation-step-item.video-card:hover .card-video-overlay {
-  background: rgba(255, 255, 255, 0.88);
+.remediation-step-item.highlight-remediation {
+  background: #fff7ed !important;
+  border-color: #ffedd5;
 }
 
 .remediation-step-item:hover {
+  background: #ffffff !important;
   border-color: #fdba74;
   box-shadow: 0 8px 24px rgba(249, 115, 22, 0.18);
   transform: translateY(-2px);
