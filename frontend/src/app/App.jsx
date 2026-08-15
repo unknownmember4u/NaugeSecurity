@@ -714,66 +714,145 @@ export function App() {
             </div>
           </div>
 
-          {/* Findings Section */}
+          {/* Findings Section (Split Side-by-Side Layout) */}
           <div className="findings-section" id="findings">
-            <div className="ent-section-inner">
-              <div className="section-header">
+            <div className="ent-section-inner findings-split">
+              {/* Left Column: Heading, Subheading & Body Content */}
+              <div className="findings-left-col">
                 <span className="section-eyebrow">FINDINGS</span>
                 <h3 className="section-title">Know Which Vulnerabilities Deserve Attention</h3>
                 <p className="section-subtitle">
                   Replace overwhelming vulnerability lists with prioritized security intelligence.
                 </p>
+                <div className="findings-body-card">
+                  <p className="findings-body-text">
+                    Every finding is presented with the context needed to investigate it—including severity, confidence, affected assets, evidence, related findings, AI analysis, and recommended remediation.
+                  </p>
+                </div>
               </div>
 
-              <div className="findings-main-card">
-                <p className="findings-body-text">
-                  Every finding is presented with the context needed to investigate it—including severity, confidence, affected assets, evidence, related findings, AI analysis, and recommended remediation.
+              {/* Right Column: Interactive Priority Intelligence Bar Stack */}
+              <div className="findings-right-col">
+                <div className="severity-intelligence-stack">
+                  <div className="severity-row-item critical-row">
+                    <div className="severity-row-top">
+                      <div className="severity-title-group">
+                        <span className="status-dot dot-critical"></span>
+                        <span className="severity-row-name">Critical</span>
+                        <span className="severity-row-badge badge-critical">P1 — Immediate</span>
+                      </div>
+                      <span className="severity-impact-val val-critical">Action Required</span>
+                    </div>
+                    <p className="severity-row-desc">Immediate attention required.</p>
+                    <div className="severity-bar-track">
+                      <div className="severity-bar-fill fill-critical" style={{ width: '95%' }}></div>
+                    </div>
+                  </div>
+
+                  <div className="severity-row-item high-row">
+                    <div className="severity-row-top">
+                      <div className="severity-title-group">
+                        <span className="status-dot dot-high"></span>
+                        <span className="severity-row-name">High</span>
+                        <span className="severity-row-badge badge-high">P2 — Prompt</span>
+                      </div>
+                      <span className="severity-impact-val val-high">High Priority</span>
+                    </div>
+                    <p className="severity-row-desc">Significant security risk requiring prompt investigation.</p>
+                    <div className="severity-bar-track">
+                      <div className="severity-bar-fill fill-high" style={{ width: '75%' }}></div>
+                    </div>
+                  </div>
+
+                  <div className="severity-row-item medium-row">
+                    <div className="severity-row-top">
+                      <div className="severity-title-group">
+                        <span className="status-dot dot-medium"></span>
+                        <span className="severity-row-name">Medium</span>
+                        <span className="severity-row-badge badge-medium">P3 — Moderate</span>
+                      </div>
+                      <span className="severity-impact-val val-medium">Scheduled Fix</span>
+                    </div>
+                    <p className="severity-row-desc">Security weakness that should be addressed.</p>
+                    <div className="severity-bar-track">
+                      <div className="severity-bar-fill fill-medium" style={{ width: '50%' }}></div>
+                    </div>
+                  </div>
+
+                  <div className="severity-row-item low-row">
+                    <div className="severity-row-top">
+                      <div className="severity-title-group">
+                        <span className="status-dot dot-low"></span>
+                        <span className="severity-row-name">Low</span>
+                        <span className="severity-row-badge badge-low">P4 — Informational</span>
+                      </div>
+                      <span className="severity-impact-val val-low">Low Impact</span>
+                    </div>
+                    <p className="severity-row-desc">Lower-impact issue or improvement opportunity.</p>
+                    <div className="severity-bar-track">
+                      <div className="severity-bar-fill fill-low" style={{ width: '25%' }}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Evidence & Explainability Section (Plain White BG) */}
+          <div className="explainability-section" id="explainability">
+            <div className="ent-section-inner">
+              <div className="section-header">
+                <span className="section-eyebrow">EVIDENCE &amp; EXPLAINABILITY</span>
+                <h3 className="section-title light-theme-title">Every Finding Should Have a Reason</h3>
+                <p className="section-subtitle light-theme-subtitle">
+                  Understand the evidence behind the assessment—not just the final verdict.
                 </p>
               </div>
 
-              <div className="findings-severity-grid">
-                <div className="severity-card critical-card">
-                  <div className="severity-card-header">
-                    <span className="severity-badge badge-critical">Critical</span>
-                    <div className="severity-icon-box icon-critical">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
-                    </div>
-                  </div>
-                  <h4 className="severity-title">Critical</h4>
-                  <p className="severity-body">Immediate attention required.</p>
-                </div>
+              <div className="explainability-main-card">
+                <p className="explainability-body-text">
+                  NaugeSecurity separates observed evidence from AI interpretation. Security teams can inspect the signals associated with a finding, understand the reasoning behind its assessment, and make their own informed decisions.
+                </p>
+              </div>
 
-                <div className="severity-card high-card">
-                  <div className="severity-card-header">
-                    <span className="severity-badge badge-high">High</span>
-                    <div className="severity-icon-box icon-high">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" /><line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" /></svg>
-                    </div>
+              {/* Supporting Line: Pipeline Flow Visual */}
+              <div className="pipeline-flow-wrapper">
+                <div className="pipeline-flow-grid">
+                  <div className="pipeline-flow-node">
+                    <div className="pipeline-node-number">01</div>
+                    <h4 className="pipeline-node-title">Evidence</h4>
+                    <p className="pipeline-node-desc">Observed signals &amp; raw findings</p>
                   </div>
-                  <h4 className="severity-title">High</h4>
-                  <p className="severity-body">Significant security risk requiring prompt investigation.</p>
-                </div>
 
-                <div className="severity-card medium-card">
-                  <div className="severity-card-header">
-                    <span className="severity-badge badge-medium">Medium</span>
-                    <div className="severity-icon-box icon-medium">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" /></svg>
-                    </div>
+                  <div className="pipeline-flow-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6" /></svg>
                   </div>
-                  <h4 className="severity-title">Medium</h4>
-                  <p className="severity-body">Security weakness that should be addressed.</p>
-                </div>
 
-                <div className="severity-card low-card">
-                  <div className="severity-card-header">
-                    <span className="severity-badge badge-low">Low</span>
-                    <div className="severity-icon-box icon-low">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
-                    </div>
+                  <div className="pipeline-flow-node">
+                    <div className="pipeline-node-number">02</div>
+                    <h4 className="pipeline-node-title">Analysis</h4>
+                    <p className="pipeline-node-desc">AI correlation &amp; risk modeling</p>
                   </div>
-                  <h4 className="severity-title">Low</h4>
-                  <p className="severity-body">Lower-impact issue or improvement opportunity.</p>
+
+                  <div className="pipeline-flow-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6" /></svg>
+                  </div>
+
+                  <div className="pipeline-flow-node">
+                    <div className="pipeline-node-number">03</div>
+                    <h4 className="pipeline-node-title">Confidence</h4>
+                    <p className="pipeline-node-desc">Impact scoring &amp; verification</p>
+                  </div>
+
+                  <div className="pipeline-flow-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6" /></svg>
+                  </div>
+
+                  <div className="pipeline-flow-node highlight-node">
+                    <div className="pipeline-node-number">04</div>
+                    <h4 className="pipeline-node-title">Recommended Action</h4>
+                    <p className="pipeline-node-desc">Targeted remediation guidance</p>
+                  </div>
                 </div>
               </div>
             </div>
