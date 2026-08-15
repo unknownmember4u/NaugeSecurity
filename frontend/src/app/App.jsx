@@ -265,7 +265,8 @@ export function App() {
           </div>
 
           <nav className="ent-nav-links">
-            <a href="#platform" className="ent-link">Platform</a>
+
+            <a href="#how-it-works" className="ent-link">How It Works</a>
             <a href="#features" className="ent-link">Capabilities</a>
             <a href="#architecture" className="ent-link">Architecture</a>
             <a href="#compliance" className="ent-link">Compliance</a>
@@ -372,27 +373,31 @@ export function App() {
             {/* Enterprise Key Stats Row */}
             <div className="ent-stats-grid">
               <div className="stat-card">
-                <div className="stat-value">99.98%</div>
-                <div className="stat-label">Signal Precision</div>
-                <div className="stat-desc">Zero false positives via isolated sandbox execution</div>
+                <div className="stat-number-badge">01</div>
+                <div className="stat-value">Verified First</div>
+                <div className="stat-label">Authorized Assessment</div>
+                <div className="stat-desc">Every target is verified before active security testing.</div>
               </div>
 
               <div className="stat-card">
-                <div className="stat-value">&lt; 15 min</div>
-                <div className="stat-label">Mean Time to Validate</div>
-                <div className="stat-desc">From new CVE disclosure to verified impact proof</div>
+                <div className="stat-number-badge">02</div>
+                <div className="stat-value">6+ Asset Types</div>
+                <div className="stat-label">Attack Surface Discovery</div>
+                <div className="stat-desc">Domains, subdomains, endpoints, APIs, technologies, and services.</div>
               </div>
 
               <div className="stat-card">
-                <div className="stat-value">10M+</div>
-                <div className="stat-label">Daily Vector Simulations</div>
-                <div className="stat-desc">Continuous multi-cloud perimeter scanning</div>
+                <div className="stat-number-badge">03</div>
+                <div className="stat-value">AI-Assisted</div>
+                <div className="stat-label">Security Investigation</div>
+                <div className="stat-desc">Correlate evidence and findings to understand what actually matters.</div>
               </div>
 
               <div className="stat-card">
-                <div className="stat-value">0</div>
-                <div className="stat-label">Production Impact</div>
-                <div className="stat-desc">Non-disruptive, safe exploit payload testing</div>
+                <div className="stat-number-badge">04</div>
+                <div className="stat-value">End-to-End</div>
+                <div className="stat-label">Find → Fix → Validate</div>
+                <div className="stat-desc">Track findings from discovery through remediation and validation.</div>
               </div>
             </div>
           </div>
@@ -419,7 +424,7 @@ export function App() {
                   alt: 'HIPAA Compliant'
                 },
                 {
-                  icon: <svg viewBox="0 0 24 24" className="badge-icon" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>,
+                  icon: <svg viewBox="0 0 24 24" className="badge-icon" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>,
                   alt: 'PCI-DSS v4.0'
                 }
               ]}
@@ -427,6 +432,97 @@ export function App() {
               durationOnHover={85}
               gap={32}
             />
+          </div>
+
+          {/* How It Works Section */}
+          <div className="how-it-works-section" id="how-it-works">
+            <div className="section-header">
+              <span className="section-eyebrow">HOW IT WORKS</span>
+              <h3 className="section-title">From Verified Ownership to Actionable Security Insights</h3>
+              <p className="section-subtitle">
+                A structured security workflow designed to keep assessments authorized, observable, and actionable.
+              </p>
+            </div>
+
+            <div className="workflow-steps-grid">
+              <div className="workflow-step-card">
+                <div className="step-card-header">
+                  <span className="step-badge">Step 01 — Verify</span>
+                  <div className="step-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="m9 12 2 2 4-4" /></svg>
+                  </div>
+                </div>
+                <h4 className="step-title">Verify Your Website</h4>
+                <p className="step-body">
+                  Before an assessment begins, NaugeSecurity verifies that you control the target through domain-based verification. This establishes an explicit security boundary before active assessment starts.
+                </p>
+              </div>
+
+              <div className="workflow-step-card">
+                <div className="step-card-header">
+                  <span className="step-badge">Step 02 — Discover</span>
+                  <div className="step-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /><line x1="11" y1="8" x2="11" y2="14" /><line x1="8" y1="11" x2="14" y2="11" /></svg>
+                  </div>
+                </div>
+                <h4 className="step-title">Map Your Attack Surface</h4>
+                <p className="step-body">
+                  Discover domains, subdomains, endpoints, APIs, technologies, and exposed services associated with your verified target. Build a clearer picture of what is actually exposed.
+                </p>
+              </div>
+
+              <div className="workflow-step-card">
+                <div className="step-card-header">
+                  <span className="step-badge">Step 03 — Assess</span>
+                  <div className="step-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" /><line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" /></svg>
+                  </div>
+                </div>
+                <h4 className="step-title">Identify Security Risks</h4>
+                <p className="step-body">
+                  Run controlled security assessments against the authorized scope to identify potential vulnerabilities, configuration weaknesses, and other security signals.
+                </p>
+              </div>
+
+              <div className="workflow-step-card">
+                <div className="step-card-header">
+                  <span className="step-badge">Step 04 — Investigate</span>
+                  <div className="step-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z" /><path d="M12 12L2.1 12" /><path d="M12 12l4.3-7.5" /><circle cx="12" cy="12" r="3" /></svg>
+                  </div>
+                </div>
+                <h4 className="step-title">Let AI Investigate the Findings</h4>
+                <p className="step-body">
+                  NaugeSecurity uses AI-assisted investigation to correlate evidence, analyze related assets and findings, assess confidence, and provide a structured explanation of why a finding matters.
+                </p>
+              </div>
+
+              <div className="workflow-step-card">
+                <div className="step-card-header">
+                  <span className="step-badge">Step 05 — Prioritize</span>
+                  <div className="step-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" /></svg>
+                  </div>
+                </div>
+                <h4 className="step-title">Focus on What Matters</h4>
+                <p className="step-body">
+                  Not every finding deserves the same attention. NaugeSecurity helps prioritize issues using severity, confidence, affected assets, evidence, and potential impact.
+                </p>
+              </div>
+
+              <div className="workflow-step-card">
+                <div className="step-card-header">
+                  <span className="step-badge">Step 06 — Remediate</span>
+                  <div className="step-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+                  </div>
+                </div>
+                <h4 className="step-title">Fix. Validate. Improve.</h4>
+                <p className="step-body">
+                  Get actionable remediation guidance, apply the fix, and run validation assessments to determine whether the issue has been resolved.
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Core Platform Capabilities Grid */}
