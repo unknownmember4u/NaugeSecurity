@@ -1196,10 +1196,7 @@ export function App() {
                 <p className="footer-desc">
                   NaugeSecurity — Autonomous Security Intelligence for the Modern Web.
                 </p>
-                <div className="system-status">
-                  <span className="status-dot"></span>
-                  <span>All Systems Operational (100% Uptime)</span>
-                </div>
+
               </div>
 
               <div className="footer-col">
@@ -1237,7 +1234,7 @@ export function App() {
 
             <div className="footer-bottom">
               <p>© {new Date().getFullYear()} NaugeSecurity Inc. All rights reserved.</p>
-              <p className="footer-tagline">NaugeSecurity — Autonomous Security Intelligence for the Modern Web.</p>
+              <p className="footer-tagline">NaugeSecurity - Autonomous Security Intelligence for the Modern Web.</p>
             </div>
           </footer>
 
