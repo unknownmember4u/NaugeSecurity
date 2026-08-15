@@ -81,6 +81,9 @@ const InfiniteSlider = memo(function InfiniteSlider({
         ref={ref}
         className="flex w-max"
         style={{
+          display: "flex",
+          width: "max-content",
+          alignItems: "center",
           ...(direction === "horizontal"
             ? { x: translation }
             : { y: translation }),

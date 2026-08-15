@@ -3,6 +3,7 @@ import bgVideo from '../assets/images/bg.mp4';
 import '../styles/background.css';
 import NewtonsCradle from '../components/NewtonsCradle';
 import LogoMarquee from '../components/ui/logo-marquee';
+import BoxLoader from '../components/ui/box-loader';
 
 export function App() {
   const videoRef = useRef(null);
@@ -62,41 +63,57 @@ export function App() {
     let videoLoaded = false;
     let fontsLoaded = false;
     let windowLoaded = false;
-    let targetProgress = 10;
+    let targetProgress = 15;
 
-    // Helper to push targetProgress forward
     const setTarget = (val) => {
       if (val > targetProgress) {
-        targetProgress = Math.min(val, 100);
+        targetProgress = Math.min(Math.round(val), 100);
       }
     };
 
-    // Smooth ticker moving splashProgress toward real network targetProgress
+    // Calculate real-time network progress using Performance Resource Timing + Video Buffer
+    const calculateNetworkProgress = () => {
+      let networkPercent = 0;
+      if (typeof window !== 'undefined' && window.performance) {
+        const resources = performance.getEntriesByType('resource');
+        if (resources && resources.length > 0) {
+          networkPercent = Math.min((resources.length / (resources.length + 3)) * 60, 60);
+        }
+      }
+
+      const video = videoRef.current;
+      let videoPercent = 0;
+      if (video && video.duration > 0 && video.buffered.length > 0) {
+        const bufferedEnd = video.buffered.end(video.buffered.length - 1);
+        videoPercent = Math.min((bufferedEnd / video.duration) * 30, 30);
+      }
+
+      setTarget(15 + networkPercent + videoPercent);
+    };
+
+    // Ticker smoothly advances splashProgress to real-time network targetProgress
     const ticker = setInterval(() => {
+      calculateNetworkProgress();
+
       setSplashProgress((prev) => {
         if (prev < targetProgress) {
-          const step = Math.ceil((targetProgress - prev) * 0.2) || 1;
+          const step = Math.max(Math.ceil((targetProgress - prev) * 0.18), 1);
           const next = Math.min(prev + step, 100);
           if (next >= 100) {
             clearInterval(ticker);
             setPageRevealed(true);
-            setTimeout(() => setLoading(false), 500);
+            setTimeout(() => setLoading(false), 400);
           }
           return next;
         }
         return prev;
       });
-    }, 30);
+    }, 35);
 
     const video = videoRef.current;
 
-    // 1. Monitor Real Background Video Buffer & Network Loading
     const handleVideoProgress = () => {
-      if (video && video.duration > 0 && video.buffered.length > 0) {
-        const bufferedEnd = video.buffered.end(video.buffered.length - 1);
-        const percent = Math.min((bufferedEnd / video.duration) * 75, 75);
-        setTarget(15 + percent);
-      }
+      calculateNetworkProgress();
     };
 
     const handleVideoCanPlay = () => {
@@ -124,7 +141,7 @@ export function App() {
       });
     }
 
-    // 2. Monitor Font Asset Loading (document.fonts.ready API)
+    // Monitor Font Asset Loading
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready
         .then(() => {
@@ -140,7 +157,7 @@ export function App() {
       fontsLoaded = true;
     }
 
-    // 3. Monitor Network Window Load Event
+    // Monitor Window Load Event
     if (document.readyState === 'complete') {
       windowLoaded = true;
       setTarget(95);
@@ -160,7 +177,7 @@ export function App() {
       }
     }
 
-    // Fallback safety timer: Guarantee page reveal even under severe network throttles
+    // Fallback safety timer
     const fallbackTimer = setTimeout(() => {
       setTarget(100);
     }, 4500);
@@ -235,19 +252,7 @@ export function App() {
       {loading && (
         <div className={`splash-screen ${splashProgress === 100 ? 'splash-exit' : ''}`}>
           <div className="splash-content">
-            <div className="splash-brand">
-              <span className="splash-logo">NaugeSecurity</span>
-              <span className="splash-tag">Autonomous Security Infrastructure</span>
-            </div>
-
-            <div style={{ margin: '2.5rem 0 1.25rem' }}>
-              <NewtonsCradle size={56} speed={1.2} color="#f97316" />
-            </div>
-
-            <div className="splash-progress-container">
-              <div className="splash-progress-bar" style={{ width: `${splashProgress}%` }} />
-            </div>
-            <div className="splash-percentage">{splashProgress}%</div>
+            <BoxLoader />
           </div>
         </div>
       )}
@@ -798,12 +803,7 @@ security_policy:
             {isAuditing ? (
               <div className="audit-modal-body">
                 <NewtonsCradle size={58} speed={1.0} color="#ea580c" />
-                <h3 style={{ marginTop: '1.5rem', color: '#09090b', fontSize: '1.4rem', fontWeight: 800 }}>
-                  Autonomous Audit In Progress
-                </h3>
-                <p style={{ color: '#71717a', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
-                  Executing non-destructive zero-day vulnerability simulations
-                </p>
+
                 <div className="audit-status-step">{auditStep}</div>
                 <div className="splash-progress-container" style={{ width: '100%', marginTop: '1.5rem' }}>
                   <div className="splash-progress-bar" style={{ width: `${auditProgress}%` }} />
