@@ -862,7 +862,9 @@ export function App() {
               {/* Left Column: Remediation Flow Lifecycle Widget */}
               <div className="remediation-left-col">
                 <div className="remediation-flow-stack">
-                  <div className="remediation-step-item">
+                  <div className="remediation-step-item video-card">
+                    <video className="card-bg-video" autoPlay loop muted playsInline src={bgVideo} />
+                    <div className="card-video-overlay" />
                     <h4 className="remediation-step-title">Discover</h4>
                   </div>
 
@@ -870,7 +872,9 @@ export function App() {
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><polyline points="19 12 12 19 5 12" /></svg>
                   </div>
 
-                  <div className="remediation-step-item">
+                  <div className="remediation-step-item video-card">
+                    <video className="card-bg-video" autoPlay loop muted playsInline src={bgVideo} />
+                    <div className="card-video-overlay" />
                     <h4 className="remediation-step-title">Investigate</h4>
                   </div>
 
@@ -878,7 +882,9 @@ export function App() {
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><polyline points="19 12 12 19 5 12" /></svg>
                   </div>
 
-                  <div className="remediation-step-item">
+                  <div className="remediation-step-item video-card">
+                    <video className="card-bg-video" autoPlay loop muted playsInline src={bgVideo} />
+                    <div className="card-video-overlay" />
                     <h4 className="remediation-step-title">Fix</h4>
                   </div>
 
@@ -886,7 +892,9 @@ export function App() {
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><polyline points="19 12 12 19 5 12" /></svg>
                   </div>
 
-                  <div className="remediation-step-item highlight-remediation">
+                  <div className="remediation-step-item video-card highlight-remediation">
+                    <video className="card-bg-video" autoPlay loop muted playsInline src={bgVideo} />
+                    <div className="card-video-overlay highlight-overlay" />
                     <h4 className="remediation-step-title">Validate</h4>
                   </div>
                 </div>

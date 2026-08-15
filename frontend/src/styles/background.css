@@ -996,9 +996,11 @@ body,
 }
 
 .footer-logo {
-  font-size: 1.5rem;
+  font-family: 'Transcity', sans-serif !important;
+  font-size: 2.35rem;
   font-weight: 800;
   color: #ffffff;
+  letter-spacing: 0.02em;
 }
 
 .footer-desc {
@@ -2233,16 +2235,16 @@ body,
 }
 
 .findings-body-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: #18181b !important;
+  border: 1px solid #27272a;
   border-radius: 20px;
   padding: 1.6rem 1.85rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .findings-body-text {
   font-size: 0.975rem;
-  color: #334155;
+  color: #cbd5e1 !important;
   line-height: 1.7;
   font-weight: 500;
   margin: 0;
@@ -2517,8 +2519,8 @@ body,
 }
 
 .pipeline-flow-node.highlight-node {
-  background: #fff7ed;
-  border-color: #ffedd5;
+  background: #ffffff;
+  border-color: #e2e8f0;
 }
 
 .pipeline-node-number {
@@ -2556,11 +2558,12 @@ body,
   width: 100% !important;
   max-width: 100% !important;
   background: #000000 !important;
-  width: 100%;
-  background: #ffffff !important;
-  color: #0f172a;
+  color: #ffffff;
   padding: 3.5rem 1.5rem;
-  border-bottom: 1px solid #e2e8f0;
+  border-top: 1px solid #1e293b;
+  border-bottom: 1px solid #1e293b;
+  box-shadow: none !important;
+  margin: 0 !important;
   position: relative;
   z-index: 2;
   box-sizing: border-box;
@@ -2608,17 +2611,48 @@ body,
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   box-sizing: border-box;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
 }
 
-.remediation-step-item.highlight-remediation {
-  background: #fff7ed !important;
-  border-color: #ffedd5;
+.remediation-step-item.video-card {
+  position: relative;
+  overflow: hidden;
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  z-index: 1;
+}
+
+.card-bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%) scale(1.1);
+  object-fit: cover;
+  z-index: 1;
+  filter: blur(10px) brightness(0.95);
+  pointer-events: none;
+}
+
+.card-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.82);
+  z-index: 2;
+  transition: background 0.25s ease;
+}
+
+.card-video-overlay.highlight-overlay {
+  background: rgba(255, 247, 237, 0.88);
+}
+
+.remediation-step-item.video-card:hover .card-video-overlay {
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .remediation-step-item:hover {
-  background: #ffffff !important;
   border-color: #fdba74;
   box-shadow: 0 8px 24px rgba(249, 115, 22, 0.18);
   transform: translateY(-2px);
@@ -2680,16 +2714,16 @@ body,
 }
 
 .remediation-body-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: #18181b !important;
+  border: 1px solid #27272a;
   border-radius: 20px;
   padding: 1.6rem 1.85rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .remediation-body-text {
   font-size: 0.975rem;
-  color: #334155;
+  color: #cbd5e1 !important;
   line-height: 1.7;
   font-weight: 500;
   margin: 0;
@@ -2894,8 +2928,8 @@ body,
 }
 
 .history-node-card.highlight-posture {
-  background: #fff7ed;
-  border-color: #ffedd5;
+  background: #ffffff;
+  border-color: #e2e8f0;
 }
 
 .history-node-header {
@@ -3027,19 +3061,19 @@ body,
 }
 
 .reports-main-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: #18181b !important;
+  border: 1px solid #27272a;
   border-radius: 20px;
   padding: 1.5rem 2rem;
   max-width: 900px;
   margin: 0 auto 2.25rem;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .reports-body-text {
   font-size: 1.125rem;
-  color: #334155;
+  color: #cbd5e1 !important;
   line-height: 1.75;
   font-weight: 500;
   margin: 0;
@@ -3378,22 +3412,12 @@ body,
   text-transform: uppercase;
 }
 
-.badge-dev {
-  color: #2563eb;
-  background: #eff6ff;
-  border: 1px solid #dbeafe;
-}
-
-.badge-sec {
+.badge-dev,
+.badge-sec,
+.badge-owner {
   color: #ea580c;
   background: #fff7ed;
   border: 1px solid #ffedd5;
-}
-
-.badge-owner {
-  color: #16a34a;
-  background: #f0fdf4;
-  border: 1px solid #dcfce7;
 }
 
 .persona-icon-box {
