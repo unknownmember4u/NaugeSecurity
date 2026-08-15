@@ -166,8 +166,8 @@ export function App() {
 
             <a href="#how-it-works" className="ent-link">How It Works</a>
             <a href="#ownership-verification" className="ent-link">Capabilities</a>
-            <a href="#architecture" className="ent-link">Architecture</a>
-            <a href="#compliance" className="ent-link">Compliance</a>
+            <a href="#why-naugesecurity" className="ent-link">Why NaugeSecurity</a>
+            <a href="#built-for-teams" className="ent-link">For Teams</a>
           </nav>
 
           <div className="ent-nav-actions">
@@ -191,8 +191,8 @@ export function App() {
           <nav className="mobile-nav-links">
             <a href="#how-it-works" className="ent-link" onClick={() => setIsMobileMenuOpen(false)}>How It Works</a>
             <a href="#ownership-verification" className="ent-link" onClick={() => setIsMobileMenuOpen(false)}>Capabilities</a>
-            <a href="#architecture" className="ent-link" onClick={() => setIsMobileMenuOpen(false)}>Architecture</a>
-            <a href="#compliance" className="ent-link" onClick={() => setIsMobileMenuOpen(false)}>Compliance</a>
+            <a href="#why-naugesecurity" className="ent-link" onClick={() => setIsMobileMenuOpen(false)}>Why NaugeSecurity</a>
+            <a href="#built-for-teams" className="ent-link" onClick={() => setIsMobileMenuOpen(false)}>For Teams</a>
           </nav>
         </div>
       )}
