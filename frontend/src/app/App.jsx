@@ -525,6 +525,51 @@ export function App() {
             </div>
           </div>
 
+          {/* Ownership Verification Section (Plain White BG) */}
+          <div className="ownership-verification-section" id="ownership-verification">
+            <div className="ent-section-inner">
+              <div className="section-header">
+                <span className="section-eyebrow">OWNERSHIP VERIFICATION</span>
+                <h3 className="section-title light-theme-title">Security Starts With Verified Ownership</h3>
+                <p className="section-subtitle light-theme-subtitle">
+                  Know exactly what you are authorized to assess before testing begins.
+                </p>
+              </div>
+
+              <div className="verification-main-card">
+                <p className="verification-body-text">
+                  NaugeSecurity does not treat a URL as permission to scan. Domain ownership is verified before active security assessment, creating a clear boundary between authorized targets and everything outside the scope.
+                </p>
+              </div>
+
+              <div className="verification-points-grid">
+                <div className="verification-point-card">
+                  <div className="point-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" /></svg>
+                  </div>
+                  <h4 className="point-title">DNS-Based Verification</h4>
+                  <p className="point-body">Verify control of your domain through a DNS TXT record.</p>
+                </div>
+
+                <div className="verification-point-card">
+                  <div className="point-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><path d="M9 3v18" /><path d="M15 3v18" /></svg>
+                  </div>
+                  <h4 className="point-title">Explicit Scope</h4>
+                  <p className="point-body">Clearly define which assets are included in an assessment.</p>
+                </div>
+
+                <div className="verification-point-card">
+                  <div className="point-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="m9 12 2 2 4-4" /></svg>
+                  </div>
+                  <h4 className="point-title">Controlled Assessment</h4>
+                  <p className="point-body">Security testing remains within the verified scope.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Core Platform Capabilities Grid */}
           <div className="ent-section" id="features">
             <div className="section-header">
