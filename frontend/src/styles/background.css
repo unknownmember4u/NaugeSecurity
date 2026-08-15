@@ -1,7 +1,7 @@
 /* Custom Font Definition */
 @font-face {
   font-family: 'Transcity';
-  src: url('../assets/fonts/transcity/Transcity DEMO.otf') format('opentype');
+  src: url('../assets/fonts/transcity/Transcity.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -36,8 +36,9 @@ body,
   overflow: hidden;
   z-index: 1;
   pointer-events: none;
-  transition: filter 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.12s, opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
+  /* Removed dynamic transition for high-frequency scroll updates */
   will-change: filter, opacity;
+  transform: translateZ(0); /* Force hardware acceleration */
 }
 
 .bg-video-element {
@@ -65,8 +66,9 @@ body,
     linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.3) 100%);
   backdrop-filter: blur(14px) saturate(120%);
   -webkit-backdrop-filter: blur(14px) saturate(120%);
-  transition: backdrop-filter 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.12s, -webkit-backdrop-filter 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
-  will-change: backdrop-filter;
+  /* Removed dynamic transition for high-frequency scroll updates */
+  will-change: backdrop-filter, opacity;
+  transform: translateZ(0); /* Force hardware acceleration */
 }
 
 /* ==========================================================================

@@ -10,7 +10,17 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  assetsInclude: ['**/*.mp4'],
+  assetsInclude: ['**/*.mp4', '**/*.woff2'],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          motion: ['motion']
+        }
+      }
+    }
+  },
   server: {
     port: 3000,
     open: false,

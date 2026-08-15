@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import bgVideo from '../assets/images/bg.mp4';
+import bgVideo from '../assets/images/bg-optimized.mp4';
 import '../styles/background.css';
 import NewtonsCradle from '../components/NewtonsCradle';
 import LogoMarquee from '../components/ui/logo-marquee';
@@ -13,10 +13,15 @@ export function App() {
   const [isDemoSubmitting, setIsDemoSubmitting] = useState(false);
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(true);
-  const [splashProgress, setSplashProgress] = useState(0);
-  const [pageRevealed, setPageRevealed] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [splashProgress, setSplashProgress] = useState(100);
+  const [pageRevealed, setPageRevealed] = useState(true);
+
+  const heroRef = useRef(null);
+  const bgVideoContainerRef = useRef(null);
+  const glassOverlayRef = useRef(null);
+  const sheetRef = useRef(null);
+  const navbarRef = useRef(null);
 
   const [auditModalOpen, setAuditModalOpen] = useState(false);
   const [isAuditing, setIsAuditing] = useState(false);
@@ -60,175 +65,67 @@ export function App() {
 
 
   useEffect(() => {
-    let videoLoaded = false;
-    let fontsLoaded = false;
-    let windowLoaded = false;
-    let targetProgress = 15;
-
-    const setTarget = (val) => {
-      if (val > targetProgress) {
-        targetProgress = Math.min(Math.round(val), 100);
-      }
-    };
-
-    // Calculate real-time network progress using Performance Resource Timing + Video Buffer
-    const calculateNetworkProgress = () => {
-      let networkPercent = 0;
-      if (typeof window !== 'undefined' && window.performance) {
-        const resources = performance.getEntriesByType('resource');
-        if (resources && resources.length > 0) {
-          networkPercent = Math.min((resources.length / (resources.length + 3)) * 60, 60);
-        }
-      }
-
-      const video = videoRef.current;
-      let videoPercent = 0;
-      if (video && video.duration > 0 && video.buffered.length > 0) {
-        const bufferedEnd = video.buffered.end(video.buffered.length - 1);
-        videoPercent = Math.min((bufferedEnd / video.duration) * 30, 30);
-      }
-
-      setTarget(15 + networkPercent + videoPercent);
-    };
-
-    // Ticker smoothly advances splashProgress to real-time network targetProgress
-    const ticker = setInterval(() => {
-      calculateNetworkProgress();
-
-      setSplashProgress((prev) => {
-        if (prev < targetProgress) {
-          const step = Math.max(Math.ceil((targetProgress - prev) * 0.18), 1);
-          const next = Math.min(prev + step, 100);
-          if (next >= 100) {
-            clearInterval(ticker);
-            setPageRevealed(true);
-            setTimeout(() => setLoading(false), 400);
-          }
-          return next;
-        }
-        return prev;
-      });
-    }, 35);
-
     const video = videoRef.current;
-
-    const handleVideoProgress = () => {
-      calculateNetworkProgress();
-    };
-
-    const handleVideoCanPlay = () => {
-      videoLoaded = true;
-      setTarget(85);
-      checkAllLoaded();
-    };
-
     if (video) {
       video.defaultMuted = true;
       video.muted = true;
-
-      if (video.readyState >= 3) {
-        videoLoaded = true;
-        setTarget(85);
-      } else {
-        video.addEventListener('progress', handleVideoProgress);
-        video.addEventListener('canplaythrough', handleVideoCanPlay);
-        video.addEventListener('canplay', handleVideoCanPlay);
-        video.load();
-      }
-
       video.play().catch((err) => {
         console.warn('Autoplay prevented by browser:', err);
       });
     }
-
-    // Monitor Font Asset Loading
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready
-        .then(() => {
-          fontsLoaded = true;
-          setTarget(90);
-          checkAllLoaded();
-        })
-        .catch(() => {
-          fontsLoaded = true;
-          checkAllLoaded();
-        });
-    } else {
-      fontsLoaded = true;
-    }
-
-    // Monitor Window Load Event
-    if (document.readyState === 'complete') {
-      windowLoaded = true;
-      setTarget(95);
-      checkAllLoaded();
-    } else {
-      const handleWindowLoad = () => {
-        windowLoaded = true;
-        setTarget(95);
-        checkAllLoaded();
-      };
-      window.addEventListener('load', handleWindowLoad);
-    }
-
-    function checkAllLoaded() {
-      if ((videoLoaded || (video && video.readyState >= 2)) && windowLoaded) {
-        setTarget(100);
-      }
-    }
-
-    // Fallback safety timer
-    const fallbackTimer = setTimeout(() => {
-      setTarget(100);
-    }, 4500);
-
-    return () => {
-      clearInterval(ticker);
-      clearTimeout(fallbackTimer);
-      if (video) {
-        video.removeEventListener('progress', handleVideoProgress);
-        video.removeEventListener('canplaythrough', handleVideoCanPlay);
-        video.removeEventListener('canplay', handleVideoCanPlay);
-      }
-    };
   }, []);
 
-  // Track scroll position for dynamic scroll effects
+  // Track scroll position for dynamic scroll effects directly via DOM to prevent re-renders
   useEffect(() => {
     let ticking = false;
+    const maxScrollThreshold = typeof window !== 'undefined' ? Math.max(window.innerHeight * 0.75, 450) : 600;
 
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setScrollY(window.scrollY || 0);
+          const scrollY = window.scrollY || 0;
+          const scrollProgress = Math.min(Math.max(scrollY / maxScrollThreshold, 0), 1);
+
+          if (heroRef.current) {
+            heroRef.current.style.filter = `blur(${scrollProgress * 22}px)`;
+            heroRef.current.style.opacity = Math.max(1 - scrollProgress * 1.35, 0);
+            heroRef.current.style.transform = `translateY(${scrollProgress * -40}px) scale(${1 - scrollProgress * 0.08})`;
+          }
+
+          if (bgVideoContainerRef.current) {
+            bgVideoContainerRef.current.style.filter = `blur(${scrollProgress * 26}px)`;
+            bgVideoContainerRef.current.style.opacity = Math.max(1 - scrollProgress * 0.55, 0.45);
+          }
+
+          if (glassOverlayRef.current) {
+            glassOverlayRef.current.style.backdropFilter = `blur(${14 + scrollProgress * 16}px) saturate(120%)`;
+            glassOverlayRef.current.style.WebkitBackdropFilter = `blur(${14 + scrollProgress * 16}px) saturate(120%)`;
+          }
+
+          if (sheetRef.current) {
+            sheetRef.current.style.opacity = Math.min(0.35 + scrollProgress * 0.65, 1);
+          }
+
+          if (navbarRef.current) {
+            if (scrollY >= 80) {
+              navbarRef.current.classList.add('navbar-visible');
+            } else {
+              navbarRef.current.classList.remove('navbar-visible');
+            }
+          }
+
           ticking = false;
         });
         ticking = true;
       }
     };
 
+    // Initialize initial state immediately
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Calculate dynamic scroll metrics over 600px scroll range
-  const maxScrollThreshold = typeof window !== 'undefined' ? Math.max(window.innerHeight * 0.75, 450) : 600;
-  const scrollProgress = Math.min(Math.max(scrollY / maxScrollThreshold, 0), 1);
-
-  // Hero section dynamic styles
-  const heroBlur = scrollProgress * 22; // 0px to 22px blur
-  const heroOpacity = Math.max(1 - scrollProgress * 1.35, 0); // 1.0 to 0.0
-  const heroScale = 1 - scrollProgress * 0.08; // 1.0 to 0.92
-  const heroTranslateY = scrollProgress * -40; // 0px to -40px
-
-  // Background video dynamic styles
-  const bgBlur = scrollProgress * 26; // 0px to 26px blur on video
-  const bgOpacity = Math.max(1 - scrollProgress * 0.55, 0.45); // 1.0 to 0.45
-
-  // Main enterprise page sheet dynamic styles (No blur effect on this page sheet)
-  const sheetBlur = 0; // Removed blur effect from this page sheet
-  const sheetOpacity = Math.min(0.35 + scrollProgress * 0.65, 1); // 0.35 opacity -> 1.0 full opacity
-  const sheetScale = 0.98 + scrollProgress * 0.02; // 0.98 -> 1.0 focus scale
 
   const handleDemoSubmit = (e) => {
     e.preventDefault();
@@ -258,7 +155,7 @@ export function App() {
       )}
 
       {/* Floating Glassmorphism Notch Navigation Bar (Fixed Top-Center Window Pinned) */}
-      <header className={`ent-navbar ${scrollY >= 80 ? 'navbar-visible' : ''}`}>
+      <header ref={navbarRef} className={`ent-navbar`}>
         <div className="ent-nav-container">
           <div className="ent-brand">
             <span className="ent-logo-text">NaugeSecurity</span>
@@ -282,10 +179,11 @@ export function App() {
 
       {/* Fixed Background Video Layer (Progressively blurs on scroll) */}
       <div
+        ref={bgVideoContainerRef}
         className="bg-video-container"
         style={{
-          filter: `blur(${bgBlur}px)`,
-          opacity: bgOpacity,
+          filter: `blur(0px)`,
+          opacity: 1,
         }}
       >
         <video
@@ -304,20 +202,22 @@ export function App() {
 
       {/* Fixed Glassmorphism Overlay (Increases backdrop blur on scroll) */}
       <div
+        ref={glassOverlayRef}
         className="glass-overlay"
         style={{
-          backdropFilter: `blur(${14 + scrollProgress * 16}px) saturate(120%)`,
-          WebkitBackdropFilter: `blur(${14 + scrollProgress * 16}px) saturate(120%)`,
+          backdropFilter: `blur(14px) saturate(120%)`,
+          WebkitBackdropFilter: `blur(14px) saturate(120%)`,
         }}
       />
 
       {/* Fixed Hero Title Section (Progressively blurs and fades as user scrolls down) */}
       <div
-        className={`fixed-hero-container ${pageRevealed ? 'page-revealed' : ''}`}
+        ref={heroRef}
+        className={`fixed-hero-container page-revealed`}
         style={{
-          filter: `blur(${heroBlur}px)`,
-          opacity: heroOpacity,
-          transform: `translateY(${heroTranslateY}px) scale(${heroScale})`,
+          filter: `blur(0px)`,
+          opacity: 1,
+          transform: `translateY(0px) scale(1)`,
         }}
       >
         <section className="hero-section">
@@ -333,18 +233,19 @@ export function App() {
       </div>
 
       {/* Scrollable Content Container */}
-      <div className={`scroll-content-container ${pageRevealed ? 'page-revealed' : ''}`}>
+      <div className={`scroll-content-container page-revealed`}>
 
         {/* Invisible Spacer allowing scrolling past the fixed hero */}
         <div className="hero-scroll-spacer" />
 
         {/* Enterprise Page Sheet Section (Swipes up & transitions from BLUR -> CLEAR as user scrolls) */}
         <section
+          ref={sheetRef}
           className="enterprise-page-sheet animate-sheet"
           id="enterprise-platform"
           style={{
             filter: 'none',
-            opacity: sheetOpacity,
+            opacity: 0.35,
           }}
         >
 
