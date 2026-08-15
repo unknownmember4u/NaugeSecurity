@@ -714,6 +714,71 @@ export function App() {
             </div>
           </div>
 
+          {/* Findings Section */}
+          <div className="findings-section" id="findings">
+            <div className="ent-section-inner">
+              <div className="section-header">
+                <span className="section-eyebrow">FINDINGS</span>
+                <h3 className="section-title">Know Which Vulnerabilities Deserve Attention</h3>
+                <p className="section-subtitle">
+                  Replace overwhelming vulnerability lists with prioritized security intelligence.
+                </p>
+              </div>
+
+              <div className="findings-main-card">
+                <p className="findings-body-text">
+                  Every finding is presented with the context needed to investigate it—including severity, confidence, affected assets, evidence, related findings, AI analysis, and recommended remediation.
+                </p>
+              </div>
+
+              <div className="findings-severity-grid">
+                <div className="severity-card critical-card">
+                  <div className="severity-card-header">
+                    <span className="severity-badge badge-critical">Critical</span>
+                    <div className="severity-icon-box icon-critical">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
+                    </div>
+                  </div>
+                  <h4 className="severity-title">Critical</h4>
+                  <p className="severity-body">Immediate attention required.</p>
+                </div>
+
+                <div className="severity-card high-card">
+                  <div className="severity-card-header">
+                    <span className="severity-badge badge-high">High</span>
+                    <div className="severity-icon-box icon-high">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" /><line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" /></svg>
+                    </div>
+                  </div>
+                  <h4 className="severity-title">High</h4>
+                  <p className="severity-body">Significant security risk requiring prompt investigation.</p>
+                </div>
+
+                <div className="severity-card medium-card">
+                  <div className="severity-card-header">
+                    <span className="severity-badge badge-medium">Medium</span>
+                    <div className="severity-icon-box icon-medium">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" /></svg>
+                    </div>
+                  </div>
+                  <h4 className="severity-title">Medium</h4>
+                  <p className="severity-body">Security weakness that should be addressed.</p>
+                </div>
+
+                <div className="severity-card low-card">
+                  <div className="severity-card-header">
+                    <span className="severity-badge badge-low">Low</span>
+                    <div className="severity-icon-box icon-low">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
+                    </div>
+                  </div>
+                  <h4 className="severity-title">Low</h4>
+                  <p className="severity-body">Lower-impact issue or improvement opportunity.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Core Platform Capabilities Grid */}
           <div className="ent-section" id="features">
             <div className="section-header">
